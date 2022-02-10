@@ -1,0 +1,110 @@
+﻿@model EventiApp.Models.User
+@{
+    ViewBag.Title = "Configurar cuenta";
+
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div>
+    <h4>Cambiar la configuración de su cuenta</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Contraseña:</dt>
+        <dd>
+            @Html.ActionLink("Cambia tu contraseña", "ChangePassword")
+
+        </dd>
+        <hr />
+        @using (Html.BeginForm("Index", "Manage", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>Editar Usuario</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.IdUser)
+                @Html.HiddenFor(model => model.Active)
+                 @Html.HiddenFor(model => model.Email)
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IdDocumentType, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("IdDocumentType", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IdDocumentType, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Identification, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Identification, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Identification, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { disabled = "disabled", htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group pt-3">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Guardar" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        }
+        <hr />
+
+
+        @if (this.User.IsInRole(EventiApp.Models.Enums.RolesEnum.Guest))
+        {
+            @Html.Partial("_AccountGuestPartial", new EventiApp.Models.Employee()
+            {
+                IdUser = Model.IdUser,
+                IdEmployee = Model.Employees.FirstOrDefault().IdEmployee,
+                Position = Model.Employees.FirstOrDefault().Position
+            })
+        } else if (this.User.IsInRole(EventiApp.Models.Enums.RolesEnum.Client))
+        {
+            @Html.Partial("_AccountClientPartial", new EventiApp.Models.Client()
+       {
+           IdUser = Model.IdUser,
+           IdClient = Model.Clients.FirstOrDefault().IdClient,
+           Address = Model.Clients.FirstOrDefault().Address,
+           NumberEmployees = Model.Clients.FirstOrDefault().NumberEmployees
+       })
+        }
+
+
+    </dl>
+</div>

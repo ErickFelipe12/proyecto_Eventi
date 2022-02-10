@@ -1,0 +1,116 @@
+﻿.bodyContent {
+   padding-top: 70px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+/*input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+
+/*CSS LOGIN*/
+.backgroundLogin {
+    background: url("./img/login.png") center center/cover fixed;
+    width:100%;
+    height:contain;
+
+}
+
+.fondoCover {
+    position: relative;
+}
+
+    .fondoCover::before {
+        content: "";
+        background-color: #3a6ac2;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0.6;
+    }
+
+    .fondoCover > * {
+        position: relative;
+    }
+ 
+
+.logoLogin {
+    width: 80px;
+    height: 80px
+}
+
+
+/*CSS footer*/
+footer {
+/*    position: absolute;
+    bottom: 0;*/
+    width: 99%;
+}
+.footerItems {
+    background-color: #242860;
+    font-size: 28px;
+    padding: 10px 5%
+}
+
+.footerItems li {
+    list-style: none;
+    color: white
+}
+
+.footerItems a {
+    text-decoration: none;
+    color: #525682
+}
+
+.footerItems .footerTitle {
+    color: white
+}
+
+.footerLine {
+    background-color: #525682;
+    color:white;
+    font-size:28px;
+    padding:10px
+}
+
+/*CSS HEADER*/
+
+
+header {
+    position: absolute;
+    top: 0;
+    width: 99%;
+    background-color: #242860;
+    padding:5px;
+    height:70px
+}
+/*CSS MENU*/
+.list-group-item {
+    margin-bottom: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.125) !important;
+    color: #242860;
+}
+
+.list-group-item-light.list-group-item-action:hover, .list-group-item-light.list-group-item-action:focus {
+    color: #e5c167;
+    background-color: #242860;
+    border-right: 6px solid #e5c167;
+}
+
+

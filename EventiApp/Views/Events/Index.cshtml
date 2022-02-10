@@ -1,0 +1,71 @@
+﻿@model IEnumerable<EventiApp.Models.Event>
+
+@{
+    ViewBag.Title = "Listado de eventos";
+}
+
+<h2>Lista de Eventos</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdClient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Place)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hour)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdClient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Place)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hour)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @if (!this.User.IsInRole(EventiApp.Models.Enums.RolesEnum.Guest))
+            {
+                @Html.ActionLink("Editar", "Edit", new { id = item.IdEvent }, new { @class = "btn btn-primary " })
+                @Html.ActionLink("Supervisar", "Details", new { id = item.IdEvent }, new { @class = "btn btn-warning mx-3" })
+                @Html.ActionLink("Cancelar", "Delete", new { id = item.IdEvent }, new { @class = "btn btn-danger" })
+                @*@Html.ActionLink("Invitados", "Index", "Invitations", new { id = item.IdEvent }, new { @class = "btn btn-success ms-3" })*@
+            }
+            @if (this.User.IsInRole(EventiApp.Models.Enums.RolesEnum.Guest))
+            {
+                @Html.ActionLink("Ver Invitacion", "Details", "Invitations", new { id = item.Invitations.FirstOrDefault().IdInvitation }, new { @class = "btn btn-primary " })
+            }
+        </td>
+    </tr>
+}
+
+</table>

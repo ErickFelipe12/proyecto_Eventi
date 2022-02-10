@@ -1,0 +1,15 @@
+﻿@using Microsoft.AspNet.Identity
+
+@if (Request.IsAuthenticated)
+{
+
+    <img src="~/Content/img/user.png" width="40" />
+    <b class="border px-3 py-2 rounded-3">Bienvenido </b>
+    @User.Identity.GetUserName().Split('@')[0]
+    @*<ul class="nav navbar-nav navbar-right">
+            <li>
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            </li>
+        </ul>*@
+
+}

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<EventiApp.Models.Invitation>
+
+@{
+    ViewBag.Title = "Lista de invitados";
+    var idEvent = Url.RequestContext.RouteData.Values["id"];
+}
+
+<h2>Lista de invitaciones</h2>
+<p>
+
+    @if (this.User.IsInRole(EventiApp.Models.Enums.RolesEnum.Administrator))
+    {
+        @Html.ActionLink("Nueva Invitación", "Create", new { id = idEvent }, new { @class = "btn btn-primary" });
+
+    }
+    @Html.ActionLink("Volver", "Index", "Events", new { id = idEvent }, new { @class = "btn btn-danger" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdEvent)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.EmailEmployee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdEmployee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Accepted)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Event.Place)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.EmailEmployee)
+    </td>
+    <td>
+        @if (item.Employee != null)
+        {
+            @(String.Format("{0} {1}", item.Employee.User.Name, item.Employee.User.LastName));
+        }
+
+    </td>
+    <td>
+        @if(item.Accepted) {
+            <b>Confirmada</b> 
+        } else {
+            <b>Pendiente</b>
+        }
+   </td>
+    @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.IdInvitation }) |
+            @Html.ActionLink("Details", "Details", new { id = item.IdInvitation }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.IdInvitation })
+        </td>*@
+</tr>
+    }
+
+</table>

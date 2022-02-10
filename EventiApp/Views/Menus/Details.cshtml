@@ -1,0 +1,59 @@
+﻿@model EventiApp.Models.Menu
+
+@{
+    ViewBag.Title = "Eventi";
+}
+
+<h2>Detalle del menú</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Evento   
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Event.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <h3>Lista de invitados </h3>
+    <hr />
+    @foreach (var item in Model.MenuSelections)
+    {
+        <div class="row">
+            <div class="col-md-5">
+                @string.Format("{0} {1}", item.Invitation.Employee.User.Name, item.Invitation.Employee.User.LastName)
+               
+            </div>
+            <div class="col-md-5">
+                @item.Invitation.EmailEmployee
+            </div>
+
+        </div>
+
+    }
+</div>
+<p>
+    @Html.ActionLink("Volver", "Index", new { id = Model.IdEvent }, new { @class = "mt-4 btn btn-lg btn-danger" })
+
+</p>

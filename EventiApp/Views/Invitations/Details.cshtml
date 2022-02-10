@@ -1,0 +1,65 @@
+﻿@model EventiApp.Models.Invitation
+
+@{
+    ViewBag.Title = "Eventi";
+}
+
+<p>@Html.ActionLink("Volver", "Index", "Events",null, new { @class = "btn btn-warning" }) <h2>Detalle de Invitación</h2></p>
+
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdEvent)
+        </dt>
+
+        <dd>
+            @(String.Format("{0} - {1} - {2}", Model.Event.Place, Model.Event.Type, Model.Event.Description))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdEmployee)
+        </dt>
+
+        <dd>
+            @(String.Format("{0} {1} - {2}", Model.Employee.User.Name, Model.Employee.User.LastName, Model.Employee.Position))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailEmployee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailEmployee)
+        </dd>
+
+        
+        <dd class="mt-4">
+            @if (Model.Accepted)
+            {
+                var selected = Model.MenuSelections.Count() > 0 ? Model.MenuSelections.FirstOrDefault() : null;
+                var menuSelection = new EventiApp.Models.MenuSelection()
+                {
+                    IdInvitation = Model.IdInvitation,
+                    IdMenuSelection = selected == null ? 0 : selected.IdMenuSelection,
+                    IdMenu = selected == null ? 0 : selected.IdMenu,
+
+                };
+
+                @Html.ActionLink("Cancelar Asistencia", "Accepted", new { id = Model.IdInvitation }, new { @class = "btn btn-danger  " })
+                @Html.Partial("_MenuSelectionPartial", menuSelection);
+
+            }
+            else
+            {
+                @Html.ActionLink("Confirmar  Asistencia", "Accepted", new { id = Model.IdInvitation }, new { @class = "btn btn-primary " })
+
+            }
+        </dd>
+
+    </dl>
+</div>
+<p>
+
+</p>
