@@ -87,7 +87,7 @@ namespace EventiApp.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
+                    ModelState.AddModelError("", "El usuario o contraseña son incorrectos.");
                     return View(model);
             }
         }

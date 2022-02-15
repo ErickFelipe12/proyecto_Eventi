@@ -127,7 +127,7 @@ namespace EventiApp.Controllers
                     };
                    
                     var msjBody = createBodyInvitation(invitation);
-                    await MailHelper.SendMail(invitation.EmailEmployee, "Eventi App, te envitaron a un evento", msjBody);
+                    await MailHelper.SendMail(invitation.EmailEmployee, "Eventi, software para eventos", msjBody);
 
                     return RedirectToAction("Index", new { id = invitation.IdEvent});
                 }
@@ -144,7 +144,7 @@ namespace EventiApp.Controllers
         {
             var url = "https://localhost:44300/Account/Register?email=" + invitation.EmailEmployee;
             var html = "<h2>Hola, Haz sido invitado a un evento<h2> </br>" +
-                        "<p>visita la siguiente url para confirmar tu asistencia y continuar el proceso</p> </br> " +
+                        "<p>visita la siguiente url para confirmar tu asistencia y continuar el proceso, ¡contamos contigo!</p> </br> " +
                         "<a href="+url+ ">Si voy</a>";
                 
                 

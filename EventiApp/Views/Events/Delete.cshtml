@@ -33,7 +33,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            Descripción
         </dt>
 
         <dd>
@@ -62,8 +62,8 @@
         @Html.AntiForgeryToken()
 
 <div class="form-actions no-color">
-    <input type="submit" value="Cancelar" class="btn btn-lg btn-primary" />
-    @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-lg btn-danger" })
+    <input type="submit" value="Cancelar" class="btn btn-lg btn-danger" />
+    @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-lg btn-primary" })
 </div>
     }
 </div>
