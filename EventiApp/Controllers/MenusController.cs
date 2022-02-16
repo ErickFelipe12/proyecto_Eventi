@@ -101,5 +101,37 @@ namespace EventiApp.Controllers
                 return View(menu);
             }
         }
+
+        
+         
+          public ActionResult Delete(int id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var menuDetail = db.Menus.Find(id);
+
+            if (menuDetail == null)
+            {
+                return HttpNotFound();
+            }
+            return View(menuDetail);
+        }
+
+        
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Menu menuDelete = db.Menus.Find(id);
+            db.Menus.Remove(menuDelete);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+         
+         
+         
     }
 }
