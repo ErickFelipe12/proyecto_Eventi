@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<EventiApp.Models.Menu>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
 @{
     ViewBag.Title = "Menú del Evento";
@@ -10,11 +11,15 @@
 <p>
     @if (Model.Count() < 3)
     {
-        @Html.ActionLink("Nuevo Menú", "Create", new { id = idEvent }, new { @class = "btn btn-primary" })
+        @Html.ActionLink(" Nuevo Menú", "Create", new { id = idEvent }, new { @class = "btn btn-outline-warning btn-primary bi bi-plus-circle" })
+        @Html.ActionLink(".", "Index", "Events", new { id = idEvent }, new { @class = "btn btn-outline-white btn-danger bi bi-skip-backward" })
+
 
     }
 </p>
-<table class="table">
+<br />
+<br />
+<table class="table table table-striped table-hover table-bordered">
     <tr>
 
         <th>
@@ -24,30 +29,31 @@
             @Html.DisplayNameFor(model => model.Type)
         </th>
         <th>
-           Seleccionado
+            Seleccionado
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-      
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Type)
-        </td>
-          <td>
-            @Html.DisplayFor(modelItem => item.MenuSelections.Count)
-        </td>
-          <td>
-              @Html.ActionLink("Editar", "Edit", new { id = item.IdMenu }, new { @class = "btn btn-primary " })
-              @Html.ActionLink("Detalle", "Details", new { id = item.IdMenu }, new { @class = "btn btn-warning mx-3" })
-              @Html.ActionLink("Eliminar", "Delete", new { id = item.IdMenu }, new { @class = "btn btn-danger" })
-              @*@Html.ActionLink("Delete", "Delete", new { id=item.IdMenu })*@
-          </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MenuSelections.Count)
+            </td>
+            <td>
+                @Html.ActionLink(".", "Edit", new { id = item.IdMenu }, new { @class = "btn btn-primary bi bi-pencil-square" })
+                @Html.ActionLink(".", "Details", new { id = item.IdMenu }, new { @class = "btn btn-warning mx-3 bi bi-eye-fill" })
+                @Html.ActionLink(".", "Delete", new { id = item.IdMenu }, new { @class = "btn btn-danger bi bi-trash3-fill" })
+                @*@Html.ActionLink("Delete", "Delete", new { id=item.IdMenu })*@
+            </td>
+        </tr>
+    }
 
 </table>

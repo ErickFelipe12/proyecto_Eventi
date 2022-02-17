@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<EventiApp.Models.Invitation>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
 @{
     ViewBag.Title = "Lista de invitados";
@@ -6,16 +7,19 @@
 }
 
 <h2>Lista de invitaciones</h2>
+<br />
 <p>
 
     @if (this.User.IsInRole(EventiApp.Models.Enums.RolesEnum.Administrator))
     {
-        @Html.ActionLink("Nueva Invitación", "Create", new { id = idEvent }, new { @class = "btn btn-primary" });
+        @Html.ActionLink(".", "Create", new { id = idEvent }, new { @class = "btn btn-outline-warning btn-primary bi bi-envelope-plus-fill" });
 
     }
-    @Html.ActionLink("Volver", "Index", "Events", new { id = idEvent }, new { @class = "btn btn-danger" })
+    @Html.ActionLink(".", "Index", "Events", new { id = idEvent }, new { @class = "btn btn-outline-white btn-danger bi bi-skip-backward" })
+    <br />
+    <br />
 </p>
-<table class="table">
+<table class="table table table-striped table-hover table-bordered">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.IdEvent)
@@ -28,41 +32,44 @@
             @Html.DisplayNameFor(model => model.IdEmployee)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Accepted)
+            Estado Invitación
         </th>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Event.Place)
-    </td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Event.Place)
+            </td>
 
-    <td>
-        @Html.DisplayFor(modelItem => item.EmailEmployee)
-    </td>
-    <td>
-        @if (item.Employee != null)
-        {
-            @(String.Format("{0} {1}", item.Employee.User.Name, item.Employee.User.LastName));
-        }
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailEmployee)
+            </td>
+            <td>
+                @if (item.Employee != null)
+                {
+                    @(String.Format("{0} {1}", item.Employee.User.Name, item.Employee.User.LastName));
+                }
 
-    </td>
-    <td>
-        @if(item.Accepted) {
-            <b>Confirmada</b> 
-        } else {
-            <b>Pendiente</b>
-        }
-   </td>
-    @*<td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.IdInvitation }) |
-            @Html.ActionLink("Details", "Details", new { id = item.IdInvitation }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.IdInvitation })
-        </td>*@
-</tr>
+            </td>
+            <td>
+                @if (item.Accepted)
+                {
+                    <b class="text-success bi bi-envelope-check-fill text-center"> Confirmada</b>
+                }
+                else
+                {
+                    <b class="text-danger bi bi-envelope-x-fill"> Pendiente</b>
+                }
+            </td>
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.IdInvitation }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.IdInvitation }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.IdInvitation })
+                </td>*@
+        </tr>
     }
 
 </table>

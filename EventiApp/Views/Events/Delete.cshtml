@@ -1,4 +1,5 @@
 ﻿@model EventiApp.Models.Event
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
 @{
     ViewBag.Title = "Cancelar evento";
@@ -58,12 +59,13 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-<div class="form-actions no-color">
-    <input type="submit" value="Cancelar" class="btn btn-lg btn-danger" />
-    @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-lg btn-primary" })
-</div>
+        <div class="form-actions text-danger bi bi-trash3-fill">
+            <input type="submit" value="Cancelar" class="btn btn-outline-danger   " />
+            @Html.ActionLink(".", "Index", null, new { @class = "btn btn-lg btn-primary bi bi-skip-backward" })
+        </div>
     }
 </div>

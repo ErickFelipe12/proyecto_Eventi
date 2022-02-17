@@ -6,6 +6,8 @@
 }
 
 <h2>Supervisar Evento</h2>
+@Html.ActionLink(".", "Edit", new { id = Model.IdEvent }, new { @class = "btn btn-warning bi bi-pencil-square" })
+@Html.ActionLink(".", "Index", null, new { @class = "btn  btn-danger px-3 bi bi-skip-backward" })
 
 <div>
     <hr />
@@ -61,12 +63,11 @@
     </dl>
 </div>
 <p>
-    
-       <!--- <i class="bi bi-person-check-fill"></i>-->
-       
-    @Html.ActionLink("Editar", "Edit", new { id = Model.IdEvent }, new { @class = "btn btn-primary" })
-    @Html.ActionLink("Volver", "Index", null, new { @class = "btn  btn-danger px-3" })
-    @Html.ActionLink("Invitados", "Index", "Invitations", new { id = Model.IdEvent }, new { @class = "btn btn-success"})
-    @Html.ActionLink("Menús", "Index", "Menus", new { id = Model.IdEvent }, new { @class = "btn btn-warning" })
+
+    <!--- <i class="bi bi-person-check-fill"></i>-->
+
+
+    @Html.ActionLink(".", "Index", "Invitations", new { id = Model.IdEvent }, new { @class = "btn btn-success bi bi-people-fill" })
+    @Html.ActionLink(" Menús", "Index", "Menus", new { id = Model.IdEvent }, new { @class = "btn btn-outline-primary  bi bi-egg-fried" })
 
 </p>

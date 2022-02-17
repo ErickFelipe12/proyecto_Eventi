@@ -1,10 +1,11 @@
 ﻿@model EventiApp.Models.Invitation
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
 @{
     ViewBag.Title = "Eventi";
 }
 
-<p>@Html.ActionLink("Volver", "Index", "Events",null, new { @class = "btn btn-warning" }) <h2>Detalle de Invitación</h2></p>
+<p class="text-md-right">@Html.ActionLink(".", "Index", "Events", null, new { @class = "btn btn-warning bi bi-skip-backward " }) <h2>Detalle de Invitación</h2></p>
 
 
 <div>
@@ -34,7 +35,7 @@
             @Html.DisplayFor(model => model.EmailEmployee)
         </dd>
 
-        
+
         <dd class="mt-4">
             @if (Model.Accepted)
             {
@@ -47,13 +48,13 @@
 
                 };
 
-                @Html.ActionLink("Cancelar Asistencia", "Accepted", new { id = Model.IdInvitation }, new { @class = "btn btn-danger  " })
+                @Html.ActionLink(".", "Accepted", new { id = Model.IdInvitation }, new { @class = "btn btn-danger bi bi-x-circle-fill  " })
                 @Html.Partial("_MenuSelectionPartial", menuSelection);
 
             }
             else
             {
-                @Html.ActionLink("Confirmar  Asistencia", "Accepted", new { id = Model.IdInvitation }, new { @class = "btn btn-primary " })
+                @Html.ActionLink(" Confirmar", "Accepted", new { id = Model.IdInvitation }, new { @class = "btn btn-primary bi bi-check-circle-fill" })
 
             }
         </dd>

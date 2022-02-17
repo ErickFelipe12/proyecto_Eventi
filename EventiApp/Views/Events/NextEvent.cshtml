@@ -1,11 +1,12 @@
 ﻿@model IEnumerable<EventiApp.Models.Event>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
 @{
     ViewBag.Title = "Proximos Eventos";
 }
 
-<h2 class="mb-4">Proximos Eventos</h2>
-<hr/>
+<h2 class="mb-4">Próximos Eventos</h2>
+<hr />
 <div class="row nextEvent">
     @foreach (var item in Model)
     {
@@ -15,26 +16,27 @@
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top p-1 border-2" style="background-color: #242860" src="~/Content/img/event.jpg" alt="Card image cap">
                 <div class="card-body" style="background-color: #242860; color: #e5c167 ">
-                    <h5 class="card-title">@item.Place</h5>
+                    <h5 class="text-white text-center">@item.Place</h5>
+                    <br />
                     <p class="card-text"><b>Tipo de evento :</b> @item.Type</p>
-                    <p class="card-text"><b>Apertura :</b>  @item.Date</p>
+                    <p class="card-text"><b>Fecha :</b>  @item.Date</p>
                     <p class="card-text"><b>Hora:</b>  @item.Hour</p>
                     @if (this.User.IsInRole(EventiApp.Models.Enums.RolesEnum.Guest))
                     {
-                <a href="@Url.Action("Details", "Invitations",new {id = item.Invitations.Where(a => a.IdEvent == item.IdEvent).FirstOrDefault().IdInvitation })" class="btn btn-warning">Ver Invitacion </a>
+                        <a href="@Url.Action("Details", "Invitations",new {id = item.Invitations.Where(a => a.IdEvent == item.IdEvent).FirstOrDefault().IdInvitation })" class="btn btn-warning bi bi-eye-fill"> Invitación </a>
 
 
                     }
                     else
                     {
-                <a href="@Url.Action("Details", "Events",new {id = item.IdEvent })" class="btn btn-warning">Ver Evento</a>
+                        <a href="@Url.Action("Details", "Events",new {id = item.IdEvent })" class="btn btn-warning bi bi-eye-fill"> Ver</a>
 
                     }
                 </div>
             </div>
         </div>
 
-     
+
     }
 </div>
 

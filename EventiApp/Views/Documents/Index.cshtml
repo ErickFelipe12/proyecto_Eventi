@@ -1,15 +1,16 @@
 ﻿@model IEnumerable<EventiApp.Models.Document>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
 @{
     ViewBag.Title = "Tipos de Documentos";
 }
 
 <h2>Tipo de Documentos</h2>
-
+<br />
 <p>
-    @Html.ActionLink("Nuevo registro", "Create", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink(" Nuevo registro", "Create", null, new { @class = "btn btn-primary bi bi-plus-circle" })
 </p>
-<table class="table">
+<table class="table table table-striped table-hover table-bordered">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.DocumentType)
@@ -17,15 +18,16 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DocumentType)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.IdDocumentType }, new { @class = "btn btn-warning" }) 
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DocumentType)
+            </td>
+            <td>
+                @Html.ActionLink(".", "Edit", new { id = item.IdDocumentType }, new { @class = "btn btn-warning bi bi-pencil-square" })
+            </td>
+        </tr>
+    }
 
 </table>

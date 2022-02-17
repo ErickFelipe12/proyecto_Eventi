@@ -1,10 +1,11 @@
 ﻿@model IEnumerable<EventiApp.Models.User>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
 
 <p>
-    @Html.ActionLink("Nuevo Cliente", "Create", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink(" Nuevo Cliente", "Create", null, new { @class = "btn btn-primary bi bi-person-plus-fill" })
 </p>
-<table class="table">
+<table class="table table table-striped table-hover table-bordered">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -30,35 +31,36 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Phone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Identification)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Active)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Document.DocumentType)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id = item.IdUser }, new { @class = "btn btn-warning" })
-            @*@Html.ActionLink("Details", "Details", new { id = item.IdUser }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.IdUser })*@
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Identification)
+            </td>
+            <td class="text-success">
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Document.DocumentType)
+            </td>
+            <td>
+                @Html.ActionLink(".", "Edit", new { id = item.IdUser }, new { @class = "btn btn-warning bi bi-pencil-square" })
+                @*@Html.ActionLink("Details", "Details", new { id = item.IdUser }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.IdUser })*@
+            </td>
+        </tr>
+    }
 
 </table>
