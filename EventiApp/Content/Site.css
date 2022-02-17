@@ -65,28 +65,32 @@ footer {
 .footerItems {
     background-color: #242860;
     font-size: 28px;
-    padding: 10px 5%
+    padding: 10px 5%;
+
 }
 
 .footerItems li {
     list-style: none;
-    color: white
+    color: white;
+    font-family: "Open Sans";
 }
 
 .footerItems a {
     text-decoration: none;
-    color: #525682
+    color: #525682;
 }
 
 .footerItems .footerTitle {
-    color: white
+    color: white;
+   
 }
 
 .footerLine {
     background-color: #525682;
-    color:white;
-    font-size:28px;
-    padding:10px
+    color: white;
+    font-size: 28px;
+    padding: 10px;
+    
 }
 
 /*CSS HEADER*/
@@ -113,4 +117,11 @@ header {
     border-right: 6px solid #e5c167;
 }
 
+footer-items footer-content h3{
+    background: blue;
+    height: auto;
+    width: 100vw;
+    padding-top: 40px;
+    color:white;
+}
 

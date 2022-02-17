@@ -3,7 +3,7 @@
 
 
 <p>
-    @Html.ActionLink(" Nuevo Cliente", "Create", null, new { @class = "btn btn-primary bi bi-person-plus-fill" })
+    @Html.ActionLink(" Nuevo Cliente", "Create", null, new { @class = "btn btn-outline-white btn-warning bi bi-person-plus-fill" })
 </p>
 <table class="table table table-striped table-hover table-bordered">
     <tr>
@@ -56,7 +56,7 @@
                 @Html.DisplayFor(modelItem => item.Document.DocumentType)
             </td>
             <td>
-                @Html.ActionLink(".", "Edit", new { id = item.IdUser }, new { @class = "btn btn-warning bi bi-pencil-square" })
+                @Html.ActionLink(".", "Edit", new { id = item.IdUser }, new { @class = "btn btn-outline-primary btn bi bi-pencil-square" })
                 @*@Html.ActionLink("Details", "Details", new { id = item.IdUser }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.IdUser })*@
             </td>

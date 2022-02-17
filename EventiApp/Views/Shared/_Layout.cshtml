@@ -25,43 +25,52 @@
     </header>
     <div class="d-flex" id="wrapper"  >
         <!-- Sidebar-->
-        <div class="border-end bg-white" id="sidebar-wrapper" style="min-width:200px">
-            <div class="sidebar-heading border-bottom bg-light text-center p-3">
-               
+
+         <div class="border-end bg-white" id="sidebar-wrapper" style="min-width:200px">
+
+               <div class="sidebar-heading border-bottom bg-light text-center p-3">
                 @Html.Partial("_LoginPartial")
-            </div>
+               </div>
             <div class="list-group list-group-flush">
+
                 <a class="list-group-item list-group-item-action list-group-item-light " href="@Url.Action("Index", "Home")">
+
                     <i class="bi bi-house-door-fill"></i>
                     Home
                 </a>
-                 @if (this.User.IsInRole(EventiApp.Models.Enums.RolesEnum.Client))
-                 {
-                    <a class="list-group-item list-group-item-action list-group-item-light " href="@Url.Action("Create", "Events")">
-                        <i class="bi bi-calendar-check"></i> Nuevo Evento
-                    </a>
-                }
+
+                    @if (this.User.IsInRole(EventiApp.Models.Enums.RolesEnum.Client))
+                     {
+                         <a class="list-group-item list-group-item-action list-group-item-light " href="@Url.Action("Create", "Events")">
+                            <i class="bi bi-calendar-check"></i> Nuevo Evento
+                         </a>
+                     }
                
                     <a class="list-group-item list-group-item-action list-group-item-light " href="@Url.Action("Index", "Events")">
                         <i class="bi bi-check-all"></i>
                         Tus Eventos
                     </a>
-                 <a class="list-group-item list-group-item-action list-group-item-light " href="@Url.Action("NextEvent", "Events")">
+
+                    <a class="list-group-item list-group-item-action list-group-item-light " href="@Url.Action("NextEvent", "Events")">
                         <i class="bi-alarm"></i> Proximos Eventos
-                  </a>
+                    </a>
+
                 @*<a class="list-group-item list-group-item-action list-group-item-light " href="@Url.Action("Index", "Home")">
                     <i class="bi bi-chat-left-fill"></i> Opiniones
                 </a>*@
 
-                <a class="list-group-item list-group-item-action list-group-item-light " href="@Url.Action("Contact", "Home")">
-                    <i class="bi bi-telephone-fill"></i> Contactanos
-                </a>
-                <a class="list-group-item list-group-item-action list-group-item-light " href="@Url.Action("about", "Home")">
-                    <i class="bi bi-question-lg"></i> Centro de ayuda
-                </a>
-                <a class="list-group-item list-group-item-action list-group-item-light " href="@Url.Action("Index", "Manage")">
-                    <i class="bi bi-gear-fill"></i>  Cuenta
-                </a>
+                    <a class="list-group-item list-group-item-action list-group-item-light " href="@Url.Action("Contact", "Home")">
+                       <i class="bi bi-telephone-fill"></i> Contactanos
+                    </a>
+
+                    <a class="list-group-item list-group-item-action list-group-item-light " href="@Url.Action("about", "Home")">
+                       <i class="bi bi-question-lg"></i> Centro de ayuda
+                    </a>
+
+                    <a class="list-group-item list-group-item-action list-group-item-light " href="@Url.Action("Index", "Manage")">
+                         <i class="bi bi-gear-fill"></i>  Cuenta
+                    </a>
+
                 @if (this.User.IsInRole(EventiApp.Models.Enums.RolesEnum.Administrator))
                 {
                     <a class="list-group-item list-group-item-action list-group-item-light " href="@Url.Action("Index", "Documents")">
@@ -70,7 +79,7 @@
                     <a class="list-group-item list-group-item-action list-group-item-light " href="@Url.Action("Index", "Users")">
                         <i class="bi bi-people-fill"></i>  Usuarios
                     </a>
-                }
+                 }
 
                 @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                 {
@@ -84,13 +93,13 @@
 
             </div>
         </div>
-        <!-- Page content wrapper-->
-        <div id="page-content-wrapper"  style="width: 100%">
-            <!-- Page content-->
-            <div class="container-fluid p-5">
-                @RenderBody()
-            </div>
-        </div>
+                        <!-- Page content wrapper-->
+                         <div id="page-content-wrapper"  style="width: 100%">
+                            <!-- Page content-->
+                               <div class="container-fluid p-5">
+                                    @RenderBody()
+                                </div>
+                         </div>
     </div>
    
     <footer class="">
@@ -101,48 +110,41 @@
         </div>
 
 
+        <div class="row footerItems text-center">
 
-        <div class="row footerItems">
+            <div class="col-md-5 text-center">
+                <ul class="text-center">
+                    <li><h7 class="fw-bold footerTitle">¿Quienes Somos?</h7></li>
+                    <li><small>Software para la gestión de eventos</small></li>
+
+                </ul>
+            </div>
+
+            <!----<div class="footer-content">
 
 
+         <h3 class="footerTitle">Eventi</h3>
+         <p>El parrafo que sea necesariooooo</p>
 
-             <div class="col-md-3">
-         <ul class="">
-             
-         </ul>
+         <ul></ul>
+
+
      </div>
+     <div class="footer-bottom">
 
+         <p>Un proyecto SENA 2022</p>
 
-            <div class="col-md-4">
-                <ul class="">
-                    <li><a class="fw-bold footerTitle">¿Quienes somos?</a></li>
-                    <li><a class="" href="#">Proyecto sena</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3">
-                <ul class="">
-                    <li><a class="fw-bold footerTitle">Sobre Nosotros</a></li>
-                    <li><a class="" href="#">Software para la gestión de eventos</a></li>
-                    
-                </ul>
-            </div>
-
-            <div class="col-md-3">
-                <ul class="">
-                    
-                </ul>
-            </div>
-
+     </div>-->
 
         </div>
 
     </footer>
 
-    @Scripts.Render("~/bundles/jquery")
-    @*@Scripts.Render("~/bundles/bootstrap")*@
-    @RenderSection("scripts", required: false)
-    <script type="text/javascript">
+         @Scripts.Render("~/bundles/jquery")
+         @*@Scripts.Render("~/bundles/bootstrap")*@
+         @RenderSection("scripts", required: false)
 
+    <script type="text/javascript">
 
     </script>
 </body>
