@@ -12,18 +12,18 @@
     <hr />
 
 
-    <!--
+    
 
      <table class="table table table-striped table-hover table-bordered">
             <tr>
 
-                <th>
-                  @Html.DisplayNameFor(model => model.IdEvent)
+                <th class="text-center">
+                  Lugar - Tipo Evento - Descripción
                 </th>
-                <th>
-                  @Html.DisplayNameFor(model => model.IdEmployee)
+                <th class="text-center">
+                  Empleado - Cargo
                 </th>
-                <th>
+                <th class="text-center">
                    Correo Empleado
                 </th>
             </tr>
@@ -32,13 +32,13 @@
 
             <tr>
 
-                <td>
+                <td class="text-center">
                     @(String.Format("{0} - {1} - {2}", Model.Event.Place, Model.Event.Type, Model.Event.Description))
                 </td>
-                <td>
+                <td class="text-center">
                      @(String.Format("{0} {1} - {2}", Model.Employee.User.Name, Model.Employee.User.LastName, Model.Employee.Position))
                 </td>
-                <td>
+                <td class="text-center">
                      @Html.DisplayFor(model => model.EmailEmployee)
                 </td>
 
@@ -50,11 +50,11 @@
 
 
 
-        -->
+        
 
 
 
-   <!----> <dl class="dl-horizontal">
+   <!--- <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.IdEvent)
         </dt>
@@ -77,9 +77,9 @@
 
         <dd>
             @Html.DisplayFor(model => model.EmailEmployee)
-        </dd>
+        </dd>-->
 
-
+    <dl>
         <dd class="mt-4">
             @if (Model.Accepted)
             {

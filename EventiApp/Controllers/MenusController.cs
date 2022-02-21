@@ -7,6 +7,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Rotativa;
 
 namespace EventiApp.Controllers
 {
@@ -130,8 +131,13 @@ namespace EventiApp.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-         
-         
-         
+
+
+        public ActionResult Imprimir()
+        {
+            return new ActionAsPdf("Index")
+            { FileName = "Reporte Menus"};
+        }
+
     }
 }

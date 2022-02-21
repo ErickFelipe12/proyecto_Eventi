@@ -10,9 +10,9 @@
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
     <div>
-        <dt>Contraseña:</dt>
-        <dd>
-            @Html.ActionLink("Cambia tu contraseña", "ChangePassword")
+        <dt>Cambiar Contraseña:</dt>
+        <dd class="">
+            @Html.ActionLink("Cambiar ahora", "ChangePassword")
         </dd>
     </div>
     <hr />
@@ -40,17 +40,17 @@
 
 
                 <div class="row pt-2">
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-3">
                         @Html.LabelFor(model => model.IdDocumentType, htmlAttributes: new { @class = "control-label col-md-12" })
 
-                        <div class="col-md-12">
-                            @Html.DropDownList("IdDocumentType", null, htmlAttributes: new { @class = "form-control" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("IdDocumentType", null, htmlAttributes: new { @class = "form-select" })
                             @Html.ValidationMessageFor(model => model.IdDocumentType, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group  col-md-4">
                         @Html.LabelFor(model => model.Identification, htmlAttributes: new { @class = "control-label col-md-12" })
-                        <div class="col-md-12">
+                        <div class="col-md-8">
                             @Html.EditorFor(model => model.Identification, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.Identification, "", new { @class = "text-danger" })
                         </div>
@@ -60,17 +60,17 @@
 
 
                 <div class="row pt-2">
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-3">
                         Nombres
 
-                        <div class="col-md-12">
+                        <div class="col-md-10">
                             @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group  col-md-4">
                         @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-12" })
-                        <div class="col-md-12">
+                        <div class="col-md-8">
                             @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
                         </div>
@@ -79,10 +79,10 @@
 
 
                 <div class="row pt-2">
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-3">
                         @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-12" })
 
-                        <div class="col-md-12">
+                        <div class="col-md-10">
                             @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
                         </div>
@@ -90,7 +90,7 @@
 
                     <div class="form-group  col-md-4">
                         Correo electrónico
-                        <div class="col-md-12">
+                        <div class="col-md-8">
                             @Html.EditorFor(model => model.Email, new { disabled = "disabled", htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
                             @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                         </div>
@@ -126,7 +126,7 @@
 
                 <div class="form-group pt-3">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Guardar" class="btn btn-primary" />
+                        <input type="submit" value="Guardar" class="btn btn-success btn-sm" />
                     </div>
                 </div>
             </div>

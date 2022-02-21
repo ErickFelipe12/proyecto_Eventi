@@ -34,7 +34,7 @@
         <div class="row pt-2">
         <div class="form-group col-md-4">
 
-            Dirección
+            Dirección :
 
             <div class="col-md-12">
                 @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
@@ -43,8 +43,8 @@
         </div>
         <div class="form-group  col-md-4">
              
-            Número de empleados
-            <div class="col-md-12">
+            Número de empleados :
+            <div class="col-md-3">
                 @Html.EditorFor(model => model.NumberEmployees, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NumberEmployees, "", new { @class = "text-danger" })
             </div>
@@ -57,8 +57,8 @@
 
 
         <div class="form-group pt-3">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Actualizar Información" class="btn btn-primary" />
+            <div class="col-md-offset-2 col-md-10 bi bi-save2-fill text-primary">
+                <input type="submit" value="" class="btn btn-outline-primary" />
 
             </div>
         </div>
