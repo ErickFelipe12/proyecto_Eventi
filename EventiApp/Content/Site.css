@@ -2,25 +2,16 @@
    padding-top: 70px;
 }
 
-/* Set padding to keep content from hitting the edges */
+
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
+
 .dl-horizontal dt {
     white-space: normal;
 }
-
-/* Set width on the form input elements since they're 100% wide by default */
-/*input,
-select,
-textarea {
-    max-width: 280px;
-}*/
 
 /*CSS LOGIN*/
 .backgroundLogin {
@@ -58,21 +49,75 @@ textarea {
 
 /*CSS footer*/
 footer {
-/*    position: absolute;
+/*  position: absolute;
     bottom: 0;*/
     width: 99%;
 }
-.footerItems {
-    background-color: #242860;
-    font-size: 28px;
-    padding: 10px 5%;
 
+
+.pie-pagina{
+    width:100%;
+    background-color: #242860;
 }
+
+    .pie-pagina .grupo-1 {
+        width: 100%;
+        max-width: 1200px;
+        font-family: "Open Sans";
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 50px;
+        padding: 24px 0px;
+    }
+        .pie-pagina .grupo-1 .box figure {
+            width: 100%;
+            font-family: "Open Sans";
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    .pie-pagina .grupo-1 .box figure img{
+        width: 100px;
+    }
+        .pie-pagina .grupo-1 .box h2 {
+            color: white;
+            margin-bottom: 25px;
+            font-family: "Open Sans";
+            font-size: 20px;
+        }
+        .pie-pagina .grupo-1 .box p {
+            color: white;
+            font-family: "Open Sans";
+            margin-bottom: 10px;
+        }
+
+    .pie-pagina .grupo-2 {
+        background-color: #242858;
+        padding: 15px 10px;
+        text-align: center;
+        color: #e5c167;
+    }
+    
+
+
+
+    .footerItems {
+        background-color: #242860;
+        font-size: 28px;
+        padding: 10px 5%;
+    }
 
 .footerItems li {
     list-style: none;
     color: white;
+    font-size: 10px;
     font-family: "Open Sans";
+}
+.footercontent p{
+    font-size: 15px;
 }
 
 .footerItems a {
@@ -82,6 +127,7 @@ footer {
 
 .footerItems .footerTitle {
     color: white;
+    
    
 }
 
