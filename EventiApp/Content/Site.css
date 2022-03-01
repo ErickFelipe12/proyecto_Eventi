@@ -66,7 +66,7 @@ footer {
         font-family: "Open Sans";
         margin: auto;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         grid-gap: 50px;
         padding: 24px 0px;
     }
@@ -94,12 +94,32 @@ footer {
             margin-bottom: 10px;
         }
 
+        .pie-pagina .grupo-1 .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 45px;
+            color: #242858;
+            margin-right: 5px;
+            background-color: white;
+            text-align: center;
+            border-radius: 50%;
+            transition: all 1000ms ease;
+        }
+
+            .pie-pagina .grupo-1 .social-links a:hover {
+                color: white;
+                background-color: #e5c167;
+            }
+
     .pie-pagina .grupo-2 {
         background-color: #242858;
         padding: 15px 10px;
         text-align: center;
         color: #e5c167;
     }
+
+
     
 
 

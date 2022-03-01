@@ -1,4 +1,5 @@
 ﻿@model EventiApp.Models.Menu
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
 @{
     ViewBag.Title = "Eliminar Menú";
@@ -13,7 +14,7 @@
 <div>
     <hr />
     <br />
-    
+
     <dl class="dl-horizontal">
         <!---
         <dt>
@@ -25,6 +26,7 @@
         </dd>-->
 
         <dt>
+
             @Html.DisplayNameFor(model => model.Description)
         </dt>
 
@@ -46,10 +48,10 @@
     {
         @Html.AntiForgeryToken()
 
-<div class="form-actions no-color">
-    <input type="submit" value="Eliminar" class="btn btn-danger" /> |
-    @Html.ActionLink("Volver", "Index", new { id = Model.IdMenu }, new { @class = "btn btn-lg btn-primary" })
-    <!---@Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-lg btn-primary" })-->
-</div>
-    }
-</div>
+        <div class="form-actions text-danger bi bi-trash3-fill">
+            <input type="submit" value="Eliminar" class="btn btn-outline-danger" /> |
+            @Html.ActionLink(".", "Index", new { id = Model.IdMenu }, new { @class = "btn btn-lg btn-primary bi bi-skip-backward" })
+            
+        </div>
+        }
+    </div>
