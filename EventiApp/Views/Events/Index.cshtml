@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<EventiApp.Models.Event>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+<script src="https://kit.fontawesome.com/05b0d5fb4c.js" crossorigin="anonymous"></script>
 
 @{
     ViewBag.Title = "Listado de eventos";
@@ -17,24 +18,28 @@
 <table class="table table-striped table-hover table-bordered">
     <tr>
         <th class="text-center">
+
             @Html.DisplayNameFor(model => model.IdClient)
         </th>
-        <th class="text-center">
-            @Html.DisplayNameFor(model => model.Place)
-        </th>
+
         <th class="text-center">
             @Html.DisplayNameFor(model => model.Type)
         </th>
         <th class="text-center">
             Descripción
         </th>
-        <th class="text-center">
+        <th class="text-center bi bi-geo-alt">
+            @Html.DisplayNameFor(model => model.Place)
+        </th>
+        <th class="text-center bi bi-clock-history">
             @Html.DisplayNameFor(model => model.Hour)
         </th>
-        <th class="text-center">
+        <th class="text-center bi bi-calendar-event">
             @Html.DisplayNameFor(model => model.Date)
         </th>
-        <th></th>
+        <th class="text-center">
+            Acciones
+        </th>
     </tr>
 
     @foreach (var item in Model)
@@ -43,14 +48,15 @@
             <td>
                 @Html.DisplayFor(modelItem => item.IdClient)
             </td>
-            <td class="text-center">
-                @Html.DisplayFor(modelItem => item.Place)
-            </td>
+            
             <td class="text-center">
                 @Html.DisplayFor(modelItem => item.Type)
             </td>
             <td class="text-center">
                 @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.Place)
             </td>
             <td class="text-center">
                 @Html.DisplayFor(modelItem => item.Hour)
