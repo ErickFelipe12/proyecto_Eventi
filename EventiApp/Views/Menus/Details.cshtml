@@ -19,35 +19,37 @@
     
 
          <table class="table table table-striped table-hover table-bordered">
-            <tr>
+             <tr>
 
-              <th>
-                @Html.DisplayNameFor(model => model.Description)
-              </th>
-              <th>
-                @Html.DisplayNameFor(model => model.Type)
-              </th>
-              <th>
-                Seleccionado
-              </th>
-              <th></th>
-            </tr>
+
+                 <th class="text-center">
+                     @Html.DisplayNameFor(model => model.Type)
+                 </th>
+                 <th class="text-center">
+                     @Html.DisplayNameFor(model => model.Description)
+                 </th>
+                 <th class="text-center bi bi-check2 text-success">
+                     Seleccionado
+                 </th>
+                 <th></th>
+             </tr>
 
 
         
-            <tr>
+             <tr>
 
-                <td>
-                    @Html.DisplayFor(model => model.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(model=> model.Type)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.MenuSelections.Count)
-                </td>
 
-            </tr>
+                 <td class="text-center">
+                     @Html.DisplayFor(model => model.Type)
+                 </td>
+                 <td class="text-center">
+                     @Html.DisplayFor(model => model.Description)
+                 </td>
+                 <td class="text-center">
+                     @Html.DisplayFor(model => model.MenuSelections.Count)
+                 </td>
+
+             </tr>
         
  
       </table>

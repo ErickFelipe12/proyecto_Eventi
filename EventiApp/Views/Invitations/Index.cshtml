@@ -21,17 +21,17 @@
 </p>
 <table class="table table table-striped table-hover table-bordered">
     <tr>
-        <th>
+        <th class="text-center">
             @Html.DisplayNameFor(model => model.IdEvent)
         </th>
 
-        <th>
+        <th class="text-center">
             @Html.DisplayNameFor(model => model.EmailEmployee)
         </th>
-        <th>
+        <th class="text-center">
             @Html.DisplayNameFor(model => model.IdEmployee)
         </th>
-        <th>
+        <th class="text-center">
             Estado Invitación
         </th>
         <th></th>
@@ -40,21 +40,21 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.Event.Place)
             </td>
 
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.EmailEmployee)
             </td>
-            <td>
+            <td class="text-center">
                 @if (item.Employee != null)
                 {
                     @(String.Format("{0} {1}", item.Employee.User.Name, item.Employee.User.LastName));
                 }
 
             </td>
-            <td>
+            <td class="text-center">
                 @if (item.Accepted)
                 {
                     <b class="text-success bi bi-envelope-check-fill text-center"> Confirmada</b>

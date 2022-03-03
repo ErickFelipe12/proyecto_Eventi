@@ -20,9 +20,10 @@
                 <div class="card-body" style="background-color: whitesmoke; color: black ">
                     <h5 class="text-secondary text-center">@item.Place</h5>
                     <br />
-                    <p class="card-text"><b>Tipo de evento :</b> @item.Type</p>
-                    <p class="card-text"><b>Fecha :</b>  @item.Date</p>
-                    <p class="card-text"><b>Hora:</b>  @item.Hour</p>
+                    <p class="card-text"><b class="bi bi-shop-window"> Tipo de evento :</b> @item.Type</p>
+                    <p class="card-text"><b class="bi bi-calendar-event"> Fecha :</b>  @item.Date</p>
+                    <p class="card-text"><b class="text-center bi bi-clock-history"> Hora:</b>  @item.Hour</p>
+                    <br />
                     @if (this.User.IsInRole(EventiApp.Models.Enums.RolesEnum.Guest))
                     {
                         <a href="@Url.Action("Details", "Invitations",new {id = item.Invitations.Where(a => a.IdEvent == item.IdEvent).FirstOrDefault().IdInvitation })" class="btn btn-warning bi bi-eye-fill"> Invitación </a>
@@ -31,7 +32,7 @@
                     }
                     else
                     {
-                        <a href="@Url.Action("Details", "Events",new {id = item.IdEvent })" class="btn btn-warning bi bi-eye-fill"> Ver</a>
+                        <a href="@Url.Action("Details", "Events",new {id = item.IdEvent })" class="btn btn-warning bi bi-eye-fill "></a>
 
                     }
                 </div>
