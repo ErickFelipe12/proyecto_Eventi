@@ -205,12 +205,12 @@ footer-items footer-content h3{
     width: 100%;
     
     background: #f7f7f7;
-    border-radius: 17px;
+    border-radius: 13px;
     overflow: hidden;
     transition: 0.9s;
     margin: 15px 20px;
     
-    grid-template-columns: repeat(2, 1fr);
+  
 }
 .card:hover{
     box-shadow: 0 15px 20px #242860;
@@ -218,9 +218,9 @@ footer-items footer-content h3{
 }
 
     .card .head {
-        display: grid;
+        display:flex;
         grid-template-columns: repeat(2, 1fr);
-        height: 125px;
+        height: 100px;
         width: 100%;
         position: relative;
     }
@@ -234,17 +234,17 @@ footer-items footer-content h3{
 
 }
 
-.card .head .img{
-    width: 150px;
-    height:150px;
-    position: absolute;
-    background: white;
-    padding: 5px;
-    border-radius: 50%;
-    bottom: -30%;
-    left: 50%;
-    transform: translate(-50%);
-}
+        .card .head .img {
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            background: #f7f7f7;
+            padding: 5px;
+            border-radius: 50%;
+            bottom: -30%;
+            left: 50%;
+            transform: translate(-50%);
+        }
 .card .head .img img{
     width: 100%;
     height: 100%;
@@ -253,18 +253,23 @@ footer-items footer-content h3{
 }
 
 .card .description{
-    height: 200px;
-    padding: 40px 20px 20px 20px;
+    position:center;
+    height: 100px;
+    padding:0px 0px 50px 450px;
     border-bottom: solid 1px rgba(6, 74, 76, .18);
     text-align:center;
 
 }
     .card .description h3{
+       
+       margin-top: -130px;
+       margin-bottom:30px;
         color: #242860;
     }
 
-    .card .description h4{
-        color:#e5c167;
+    .card .description h4 {
+        color: #e5c167;
+        margin-bottom: 30px;
     }
     .card .description p {
         margin-top: 20px;
