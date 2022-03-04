@@ -204,16 +204,17 @@ footer-items footer-content h3{
     position:page;
     width: 100%;
     
-    background: #f7f7f7;
+    background: #f8f8f8;
     border-radius: 13px;
     overflow: hidden;
-    transition: 0.9s;
+    transition: 1.5s;
     margin: 15px 20px;
+
     
   
 }
 .card:hover{
-    box-shadow: 0 15px 20px #242860;
+    box-shadow: 0 40px 40px #242860;
     transform: translateY(-20px);
 }
 
