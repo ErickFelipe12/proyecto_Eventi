@@ -133,10 +133,12 @@ namespace EventiApp.Controllers
         }
 
 
-        public ActionResult Imprimir()
+        public ActionResult Reporte(int id)
         {
-            return new ActionAsPdf("Index")
-            { FileName = "Reporte Menus"};
+            List<Menu> menus = new List<Menu>();
+            menus = db.Menus.Where(m => m.IdEvent == id).ToList();
+            return new Rotativa.ViewAsPdf("Reporte", menus);
+
         }
 
     }

@@ -142,7 +142,10 @@ namespace EventiApp.Utils
             //string chars = WebConfigurationManager.AppSettings["CharsPassWord"]; 
             //return new string(Enumerable.Repeat(chars, length)
             //  .Select(s => s[random.Next(s.Length)]).ToArray());
-            return "123456";
+            // return "123456";
+            string chars = WebConfigurationManager.AppSettings["CharsPassWord"];
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
             public static async Task PasswordRecovery(string email)

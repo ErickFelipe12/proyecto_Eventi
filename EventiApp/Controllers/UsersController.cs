@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -38,7 +39,9 @@ namespace EventiApp.Controllers
 
         
         [HttpPost]
-        public ActionResult Create(User user)
+        //public ActionResult Create(User user)
+        public async Task<ActionResult> Create(User user)
+
         {
             try{
                 if (ModelState.IsValid)
@@ -47,10 +50,14 @@ namespace EventiApp.Controllers
                     db.SaveChanges();
                     var password = UserHelper.RandomPassword();
                     UserHelper.CreateUserASP(user.Email, RolesEnum.Client, password);
-                    var client = new Client() { IdUser=user.IdUser, NumberEmployees =0, Address = " "};
+                    var client = new Client() { IdUser = user.IdUser, NumberEmployees = 0, Address = " " };
+                    // var client = new Client() { IdUser=user.IdUser, NumberEmployees =0, Address = " "};
                     db.Clients.Add(client);
                     db.SaveChanges();
                     //TODO : ENVIAR EMAIL AL CLIENTE CON LA CLAVE
+
+                    var msjBody = createBodyWelcome(user, password);
+                    await MailHelper.SendMail(user.Email, "Bienvenid@ a Eventi App", msjBody);
                     return RedirectToAction("Index");
                 }
                 LoadCombos();
@@ -61,6 +68,18 @@ namespace EventiApp.Controllers
                 LoadCombos();
                 return View(user);
             }
+        }
+
+        private string createBodyWelcome(User user, string password)
+        {
+            var html = "<h2>Bienvenido,  Eventi App<h2> </br>" +
+                         "<p> Hola " + user.Name + " " + user.LastName + " " +
+                        "<p>te hemos creado el siguiente usuario, para que realizes tus eventos</p> </br> " +
+                        "<p><b> Email: </b>" + user.Email + "</br> " +
+                        "<p><b> Password: </b>" + password + "</ p> </br> ";
+
+
+            return html;
         }
 
         private void LoadCombos()

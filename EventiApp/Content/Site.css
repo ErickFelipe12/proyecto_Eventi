@@ -214,7 +214,7 @@ footer-items footer-content h3{
   
 }
 .card:hover{
-    box-shadow: 0 40px 40px #242860;
+    box-shadow: 0 25px 30px #242860;
     transform: translateY(-20px);
 }
 

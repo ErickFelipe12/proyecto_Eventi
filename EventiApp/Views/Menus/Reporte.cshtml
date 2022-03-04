@@ -1,0 +1,75 @@
+﻿@model IEnumerable<EventiApp.Models.Menu>
+
+@{
+    Layout = null;
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ContactPDF</title>
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/Site.css" />
+
+    <style>
+        thead {
+            display: table-header-group
+        }
+
+        tfoot {
+            display: table-row-group
+        }
+
+        tr {
+            page-break-inside: avoid
+        }
+    </style>
+
+</head>
+<body style="background: white; padding: 0px; margin: 0px;">
+    <div class="row">
+        <div class="col-xs-4 pb-3">
+            <img width="80" src="~/Content/img/Logo.png" />
+        </div>
+        <div class="col-xs-8 text-right pb-3 text-center">
+            <h2>Reporte del Menu del Evento</h2>
+        </div>
+    </div>
+    <div class="container">
+
+        <table class="table">
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Type)
+                </th>
+                <th>
+                    Seleccionado
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MenuSelections.Count)
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+
+    </div>
+
+</body>
+</html>

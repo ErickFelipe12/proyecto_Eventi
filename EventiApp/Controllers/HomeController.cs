@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace EventiApp.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
