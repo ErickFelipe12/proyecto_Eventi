@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<EventiApp.Models.Menu>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+<script src="https://kit.fontawesome.com/05b0d5fb4c.js" crossorigin="anonymous"></script>
 
 @{
     Layout = null;
@@ -30,22 +32,29 @@
         <div class="col-xs-4 pb-3">
             <img width="80" src="~/Content/img/Logo.png" />
         </div>
+        <br />
+        <br />
         <div class="col-xs-8 text-right pb-3 text-center">
             <h2>Reporte del Menu del Evento</h2>
         </div>
     </div>
+    <br />
+    <br />
+    <br />
     <div class="container">
 
-        <table class="table">
+        <table class="table table-striped table-hover table-bordered">
             <tr>
 
-                <th>
-                    @Html.DisplayNameFor(model => model.Description)
-                </th>
-                <th>
+                <th class="text-center">
                     @Html.DisplayNameFor(model => model.Type)
                 </th>
-                <th>
+
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+
+                <th class="text-center bi bi-check2 text-success">
                     Seleccionado
                 </th>
             </tr>
@@ -54,13 +63,15 @@
             {
                 <tr>
 
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Description)
-                    </td>
-                    <td>
+                    <td class="text-center">
                         @Html.DisplayFor(modelItem => item.Type)
                     </td>
-                    <td>
+
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+
+                    <td class="text-center">
                         @Html.DisplayFor(modelItem => item.MenuSelections.Count)
                     </td>
                 </tr>
