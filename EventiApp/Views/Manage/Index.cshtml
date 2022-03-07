@@ -10,7 +10,7 @@
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
     <div>
-        <dt>Contraseña:</dt>
+        <dt class="bi bi-shield-lock-fill"> Contraseña:</dt>
         <dd >
             @Html.ActionLink("Cambiar contraseña", "ChangePassword")
         </dd>
@@ -49,7 +49,7 @@
                         </div>
                     </div>
                     <div class="form-group  col-md-4">
-                        N° Identificación
+                        <i class="bi bi-file-earmark-person"> N° Identificación</i>
                         <div class="col-md-8">
                             @Html.EditorFor(model => model.Identification, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.Identification, "", new { @class = "text-danger" })
@@ -80,7 +80,7 @@
 
                 <div class="row pt-2">
                     <div class="form-group col-md-3">
-                        @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <i class="bi bi-telephone-plus-fill"> Teléfono</i>
 
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
@@ -89,7 +89,7 @@
                     </div>
 
                     <div class="form-group  col-md-4">
-                        Correo electrónico
+                        <i class="bi bi-envelope-open-fill"> Correo electónico</i>
                         <div class="col-md-8">
                             @Html.EditorFor(model => model.Email, new { disabled = "disabled", htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
                             @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
