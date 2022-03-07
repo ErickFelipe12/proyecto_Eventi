@@ -57,7 +57,7 @@ namespace EventiApp.Controllers
                     //TODO : ENVIAR EMAIL AL CLIENTE CON LA CLAVE
 
                     var msjBody = createBodyWelcome(user, password);
-                    await MailHelper.SendMail(user.Email, "Bienvenid@ a Eventi App", msjBody);
+                    await MailHelper.SendMail(user.Email, "Bienvenid@ a Eventi", msjBody);
                     return RedirectToAction("Index");
                 }
                 LoadCombos();
@@ -72,11 +72,15 @@ namespace EventiApp.Controllers
 
         private string createBodyWelcome(User user, string password)
         {
-            var html = "<h2>Bienvenido,  Eventi App<h2> </br>" +
-                         "<p> Hola " + user.Name + " " + user.LastName + " " +
-                        "<p>te hemos creado el siguiente usuario, para que realizes tus eventos</p> </br> " +
+            var url = "https://localhost:44300/Account/Login";
+            var html = "<h2> Te saludamos desde Eventi <h2> </br>" +
+                         "<p> ¡Hola! " + user.Name + " " + user.LastName + " " +
+                        "<p>te hemos creado el siguiente usuario, para que realices tus eventos</p> </br> " +
                         "<p><b> Email: </b>" + user.Email + "</br> " +
-                        "<p><b> Password: </b>" + password + "</ p> </br> ";
+                        "<p><b> Password: </b>" + password + "</ p> </br> " +
+                        "<p>Puedes iniciar sesión ahora y cambiar a la contraseña que desees</p>" +
+                        "<p>¡Bienvenido!</p>" +
+                        "<a href=" + url + "> Iniciar Sesión </a>";
 
 
             return html;
