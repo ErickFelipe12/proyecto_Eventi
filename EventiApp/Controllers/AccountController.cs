@@ -74,6 +74,14 @@ namespace EventiApp.Controllers
                 return View(model);
             }
 
+            var isActive = db.Users.Where(a => a.Email == model.Email).FirstOrDefault();
+            if (isActive != null && !isActive.Active)
+            {
+                ModelState.AddModelError("", "Usuario desactivado, por favor comuniquese con el administrador.");
+                return View(model);
+            }
+
+
             /*Esto no cuenta las fallas de inicio de sesión para el bloqueo de la cuenta
                Para habilitar errores de palabras o para activar el bloqueo de la cuenta, cambie a shouldLockout: true*/
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);

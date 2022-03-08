@@ -19,7 +19,7 @@
     <tr>
         <th class="text-center">
 
-            @Html.DisplayNameFor(model => model.IdClient)
+           Organizador
         </th>
 
         <th class="text-center bi bi-shop-window">
@@ -45,8 +45,8 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdClient)
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.Client.User.Name)
             </td>
             
             <td class="text-center">
