@@ -55,6 +55,8 @@ footer {
 }
 
 
+
+
 .pie-pagina{
     width:100%;
     background-color: #242860;
@@ -220,7 +222,7 @@ footer-items footer-content h3{
 
     .card .head {
         display:flex;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         height: 100px;
         width: 100%;
         position: relative;
@@ -296,3 +298,4 @@ footer-items footer-content h3{
     .card .contact a:hover{
         background: #e5c167;
     }
+

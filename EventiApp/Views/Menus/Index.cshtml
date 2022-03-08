@@ -7,9 +7,11 @@
 }
 
 <h2>Menú del Evento</h2>
+<br />
 
-@Html.ActionLink(".", "Index", "Events", new { id = idEvent }, new { @class = "btn btn-outline-danger bi bi-skip-backward" })
+
 <p>
+    @Html.ActionLink(".", "Index", "Events", new { id = idEvent }, new { @class = "btn btn-danger bi bi-skip-backward" })
     @if (Model.Count() < 3)
     {
         @Html.ActionLink(" Nuevo Menú", "Create", new { id = idEvent }, new { @class = "btn btn-outline-warning btn-primary bi bi-plus-circle" })
@@ -57,4 +59,7 @@
     }
 
 </table>
+<br />
+<br />
+<br />
 @Html.ActionLink("Generar Reporte", "Reporte", new { id = idEvent }, new { @class = "btn btn-warning mx-3", target = "_blank" })

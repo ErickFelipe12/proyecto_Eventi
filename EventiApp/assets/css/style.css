@@ -400,9 +400,9 @@ select:focus {
   .subtitulo{
     font-family: "Ubuntu", sans-serif;
     text-align: center;
-    
     color: #e5c167;
-    margin-bottom: 20px;
+    
+    margin-bottom: 60px;
     font-size: 50px;
   }
   .contenedor h2{
@@ -455,11 +455,132 @@ select:focus {
     margin-right: 5px;
   }
 
+.social a{
+
+    padding: 20px;
+    color: red;
+    font-size: 1.1rem;
+
+  }
+
+  #contact{
+    position:relative;
+    left: 60%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+  }
+
+  .social{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    background-color: #252f5a;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .contact-box{
+    background-color: whitesmoke;
+    border: 1px solid #e5c167;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 30px;
+    box-shadow: 2px 0px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .c-heading h1{
+    font-family: Roboto;
+    color: #252f5a;
+    font-size: 2.5rem;
+    font-weight: lighter;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+  }
+  .c-heading p{
+    
+    font-weight: lighter;
+    color: #e5c167;
+    font-size: 1.5rem;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+  }
+
+  .c-inputs{
+    margin: 15px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .c-inputs input{
+    width: 300px;
+    height: 45px;
+    background-color: transparent;
+    border: none;
+    font-size: 0.7rem;
+    border-bottom: 1px solid #252f5a;
+    outline: none;
+    margin: 10px 0px;
+    padding: 10px;
+    box-sizing: border-box;
+    color: #252f5a;
+    display: flex;
+  }
+  .c-inputs textarea{
+    width: 300px !important;
+    height: 200px !important;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px solid white;
+    color: #252f5a;
+    padding: 10px;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+
+  .c-inputs button{
+    width: 200px;
+    height: 40px;
+    background-color: #e5c167;
+    border: none;
+    outline: none;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
+    letter-spacing: 1px;
+  }
+  .c-inputs input:focus{
+    border-bottom: 1px solid rgba(255, 255, 255,1.00);
+    transition: all ease 0.5s;
+  }
+
+  .c-inputs textarea:focus{
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255,1.00);
+    transition: all ease 0.5s;
+  }
+
+  .c-inputs button:active{
+    transform: scale(1.01);
+  }
+
+  .map{
+    filter: grayscale(0.2);
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.2);
+    border: 2px solid white;
+  }
+
 
 
     .pie-pagina{
       width:100%;
-      background-color: White;
+      background-color: #252f5a;
   }
   
       .pie-pagina .grupo-1 {
@@ -468,7 +589,7 @@ select:focus {
           font-family: "Ubuntu", sans-serif; ;
           margin: auto;
           display: grid;
-          grid-template-columns: repeat(4, 1fr);
+          grid-template-columns: repeat(3, 1fr);
           grid-gap: 50px;
           padding: 24px 0px;
       }
@@ -485,13 +606,13 @@ select:focus {
           width: 70px;
       }
           .pie-pagina .grupo-1 .box h2 {
-              color: #242860;
+              color: white;
               margin-bottom: 25px;
               font-family: "Ubuntu", sans-serif; ;
               font-size: 20px;
           }
           .pie-pagina .grupo-1 .box p {
-              color: #242860;
+              color: white;
               font-family: "Ubuntu", sans-serif; ;
               margin-bottom: 10px;
           }
@@ -516,7 +637,7 @@ select:focus {
               }
   
       .pie-pagina .grupo-2 {
-          background-color: #252f5a;
+          background-color: #242859;
           padding: 15px 10px;
           text-align: center;
           color: #e5c167;
@@ -1228,6 +1349,13 @@ select:focus {
   .hero-area .hero-img {
     position: relative;
     top: -50px; }
+   .hero-area h2{
+      text-align: center;
+      position:relative;
+      color: #e5c167;
+      top: 170px;
+      
+    }
     .hero-area .hero-img .full-image {
       display: none; }
     .hero-area .hero-img .shape {
