@@ -7,10 +7,10 @@
 <h2>Editar Menú</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Menus", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
 <div class="form-horizontal">
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -21,7 +21,7 @@
 
 
 
-    
+
 
     <div class="row pt-2">
         <div class="form-group col-md-4 ">
@@ -30,8 +30,8 @@
 
             <div class="col-md-12">
                 <i class=""> Tipo Menú</i>
-               @Html.EditorFor(model => model.Type, new { htmlAttributes = new { @class = "form-control" } })
-               @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Type, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
             </div>
 
         </div>
@@ -49,23 +49,38 @@
         </div>
     </div>
 
-        
-
-   <!--- <div class="form-group">
-        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="form-group ">
+        Foto
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            @if (!string.IsNullOrEmpty(Model.Photo))
+            {
+
+                <img src="~/Content/menus/@Url.Content(Model.Photo)" alt="image" style="width:200px;height:50px;max-width:100%;height:auto;" />
+
+            }
+            <br />
+            <input type="file" name="NewPhoto" id="NewPhoto" class="form-control" accept=".jpg,.png,.gif,.jpeg" />
+            @Html.ValidationMessageFor(model => model.Photo)
         </div>
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Type, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
-        </div>
-    </div>-->
+
+
+    <!--- <div class="form-group">
+         @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+         <div class="col-md-10">
+             @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+             @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+         </div>
+     </div>
+
+     <div class="form-group">
+         @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
+         <div class="col-md-10">
+             @Html.EditorFor(model => model.Type, new { htmlAttributes = new { @class = "form-control" } })
+             @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+         </div>
+     </div>-->
 
     <div class="form-group py-3">
         <div class="col-md-offset-2 col-md-10">

@@ -24,6 +24,8 @@ namespace EventiApp.Models
         [Display(Name = "Tipo de menú")]
         public string Type { get; set; }
 
+        public string Photo { get; set; }
+
         public virtual Event Event { get; set; }
 
         public virtual ICollection<MenuSelection> MenuSelections { get; set; }

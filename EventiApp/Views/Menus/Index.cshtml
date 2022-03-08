@@ -29,6 +29,9 @@
         <th class="text-center">
             @Html.DisplayNameFor(model => model.Description)
         </th>
+        <th class="text-center bi bi-camera-fill">
+            
+        </th>
         <th class="text-center bi bi-check2 text-success">
             Seleccionado
         </th>
@@ -37,25 +40,36 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+<tr>
 
 
-            <td class="text-center">
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td class="text-center">
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td class="text-center">
-                @Html.DisplayFor(modelItem => item.MenuSelections.Count)
-            </td>
-            <td>
-                @Html.ActionLink(".", "Edit", new { id = item.IdMenu }, new { @class = "btn btn-outline-primary btn bi bi-pencil-square" })
-                @Html.ActionLink(".", "Details", new { id = item.IdMenu }, new { @class = "btn btn-warning mx-3 bi bi-eye-fill" })
-                @Html.ActionLink(".", "Delete", new { id = item.IdMenu }, new { @class = "btn btn-outline-danger btn bi bi-trash3-fill" })
-                @*@Html.ActionLink("Delete", "Delete", new { id=item.IdMenu })*@
-            </td>
-        </tr>
+    <td class="text-center">
+        @Html.DisplayFor(modelItem => item.Type)
+    </td>
+    <td class="text-center">
+        @Html.DisplayFor(modelItem => item.Description)
+    </td>
+    <td>
+        @if (!string.IsNullOrEmpty(item.Photo))
+        {
+            <img src="~/Content/Menus/@Url.Content(item.Photo)" alt="image" style="width:110px;height:50px;max-width:110%;height:20%;" />
+        }
+        else
+        {
+            <img src="~/Content/Menus/default.png" alt="image" style="width:110px;height:100px;max-width:50%;height:100%;right:50px;" />
+
+        }
+    </td>
+    <td class="text-center">
+        @Html.DisplayFor(modelItem => item.MenuSelections.Count)
+    </td>
+    <td>
+        @Html.ActionLink(".", "Edit", new { id = item.IdMenu }, new { @class = "btn btn-outline-primary btn bi bi-pencil-square" })
+        @Html.ActionLink(".", "Details", new { id = item.IdMenu }, new { @class = "btn btn-warning mx-3 bi bi-eye-fill" })
+        @Html.ActionLink(".", "Delete", new { id = item.IdMenu }, new { @class = "btn btn-outline-danger btn bi bi-trash3-fill" })
+        @*@Html.ActionLink("Delete", "Delete", new { id=item.IdMenu })*@
+    </td>
+</tr>
     }
 
 </table>

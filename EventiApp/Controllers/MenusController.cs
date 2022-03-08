@@ -2,10 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 using Rotativa;
 
@@ -48,14 +50,24 @@ namespace EventiApp.Controllers
 
         
         [HttpPost]
-        public ActionResult Create(Menu menu)
+        public ActionResult Create(Menu menu, HttpPostedFileBase Photo)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                     db.Menus.Add(menu);
-                     db.SaveChanges();
+                    /* db.Menus.Add(menu);
+                     db.SaveChanges();*/
+                    if (Photo != null)
+                    {
+                        string name = RandoPhotoName();
+                        var ubiFinal = Server.MapPath("~/Content/menus/" + name);
+                        Photo.SaveAs(ubiFinal);
+                        menu.Photo = name;
+                    }
+
+                    db.Menus.Add(menu);
+                    db.SaveChanges();
                     return RedirectToAction("Index", new { id = menu.IdEvent });
                 }
                 return View(menu);
@@ -65,7 +77,15 @@ namespace EventiApp.Controllers
                 return View(menu);
             }
         }
-        
+
+        public string RandoPhotoName()
+        {
+            var random = new Random();
+            string chars = WebConfigurationManager.AppSettings["CharsPassWord"];
+            return new string(Enumerable.Repeat(chars, 20)
+              .Select(s => s[random.Next(s.Length)]).ToArray()) + ".jpg";
+        }
+
         public ActionResult Edit(int id)
         {
             if (id == null)
@@ -85,12 +105,23 @@ namespace EventiApp.Controllers
 
         
         [HttpPost]
-        public ActionResult Edit(Menu menu)
+        public ActionResult Edit(Menu menu, HttpPostedFileBase NewPhoto)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
+                    if (NewPhoto != null)
+                    {
+                        if (menu.Photo != null)
+                            System.IO.File.Delete(Server.MapPath("~/Content/IconosCategoria/" + menu.Photo));
+
+                        string name = RandoPhotoName();
+                        var ubiFinal = Server.MapPath("~/Content/menus/" + name);
+                        NewPhoto.SaveAs(ubiFinal);
+                        menu.Photo = name;
+                    }
+
                     db.Entry(menu).State = EntityState.Modified;
                     db.SaveChanges();
                     return RedirectToAction("Index",new { id = menu.IdEvent });
