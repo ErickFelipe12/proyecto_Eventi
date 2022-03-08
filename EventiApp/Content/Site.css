@@ -167,10 +167,10 @@ footer {
 header {
     position: absolute;
     top: 0;
-    width: 99%;
+    width: 100%;
     background-color: #242860;
-    padding:5px;
-    height:70px
+    padding:16px;
+    height:60px;
 }
 /*CSS MENU*/
 .list-group-item {
