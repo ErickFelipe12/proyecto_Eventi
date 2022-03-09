@@ -7,7 +7,8 @@
 @Html.ActionLink(".", "Index", new { id = Model.IdEvent }, new { @class = "btn  btn-danger px-3 bi bi-skip-backward" })
 <br />
 <br />
-<h2>Supervisar Evento</h2>
+<h2 class="text-center">Supervisar Evento</h2>
+<br />
 <!---@Html.ActionLink(".", "Edit", new { id = Model.IdEvent }, new { @class = "btn btn-warning bi bi-pencil-square" })-->
 
 <br />
@@ -66,63 +67,6 @@
     </table>
 
 
-
-
-
-
-
-
-
-    <!--- <dl class="dl-horizontal">
-         <dt>
-             @Html.DisplayNameFor(model => model.IdClient)
-         </dt>
-
-         <dd>
-             @Html.DisplayFor(model => model.IdClient)
-         </dd>
-
-         <dt>
-             @Html.DisplayNameFor(model => model.Place)
-         </dt>
-
-         <dd>
-             @Html.DisplayFor(model => model.Place)
-         </dd>
-
-         <dt>
-             @Html.DisplayNameFor(model => model.Type)
-         </dt>
-
-         <dd>
-             @Html.DisplayFor(model => model.Type)
-         </dd>
-
-         <dt>
-             Descripción
-         </dt>
-
-         <dd>
-             @Html.DisplayFor(model => model.Description)
-         </dd>
-
-         <dt>
-             @Html.DisplayNameFor(model => model.Hour)
-         </dt>
-
-         <dd>
-             @Html.DisplayFor(model => model.Hour)
-         </dd>
-
-         <dt>
-             @Html.DisplayNameFor(model => model.Date)
-         </dt>
-
-         <dd>
-             @Html.DisplayFor(model => model.Date)
-         </dd>
-
-     </dl>-->
 </div>
 <br />
 <p>
@@ -131,6 +75,6 @@
 
 
     @Html.ActionLink(" Invitados", "Index", "Invitations", new { id = Model.IdEvent }, new { @class = "btn btn-success bi bi-people-fill" })
-    @Html.ActionLink(" Menús", "Index", "Menus", new { id = Model.IdEvent }, new { @class = "btn btn-outline-primary  bi bi-egg-fried" })
+    @Html.ActionLink(" Menús", "Index", "Menus", new { id = Model.IdEvent }, new { @class = "btn btn-primary al bi bi-egg-fried" })
 
 </p>

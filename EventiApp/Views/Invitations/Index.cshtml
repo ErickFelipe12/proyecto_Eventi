@@ -5,20 +5,20 @@
     ViewBag.Title = "Lista de invitados";
     var idEvent = Url.RequestContext.RouteData.Values["id"];
 }
-
-<h2>Lista de invitaciones</h2>
+@Html.ActionLink(".", "Details", "Events", new { id = idEvent }, new { @class = "btn btn-outline-white btn-danger bi bi-skip-backward" })
+<h2 class="text-center">Lista de invitaciones</h2>
 <br />
 <p>
 
-  <!---  @if (this.User.IsInRole(EventiApp.Models.Enums.RolesEnum.Administrator))
-    {
-        @Html.ActionLink(".", "Create", new { id = idEvent }, new { @class = "btn btn-outline-warning btn-primary bi bi-envelope-plus-fill" });
+    <!---  @if (this.User.IsInRole(EventiApp.Models.Enums.RolesEnum.Administrator))
+      {
+          @Html.ActionLink(".", "Create", new { id = idEvent }, new { @class = "btn btn-warning btn-primary bi bi-envelope-plus-fill" });
 
-    }-->
+      }-->
 
 
-    @Html.ActionLink(".", "Create", new { id = idEvent }, new { @class = "btn btn-outline-warning btn-primary bi bi-envelope-plus-fill" })
-    @Html.ActionLink(".", "Details", "Events", new { id = idEvent }, new { @class = "btn btn-outline-white btn-danger bi bi-skip-backward" })
+    @Html.ActionLink(".", "Create", new { id = idEvent }, new { @class = "btn btn-warning  bi bi-envelope-plus-fill" })
+    
     <br />
     <br />
 </p>

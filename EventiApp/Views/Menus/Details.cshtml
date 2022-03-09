@@ -9,8 +9,11 @@
 
 </p>
 
-<h2>Detalle del menú</h2>
+<h2 class="text-center">Detalle del menú</h2>
 <br />
+<br />
+<br />
+
 
 
 <div>
@@ -28,6 +31,7 @@
                  <th class="text-center">
                      @Html.DisplayNameFor(model => model.Description)
                  </th>
+                 
                  <th class="text-center bi bi-check2 text-success">
                      Seleccionado
                  </th>
@@ -36,7 +40,7 @@
 
 
         
-             <tr>
+            <tr>
 
 
                  <td class="text-center">
@@ -45,6 +49,8 @@
                  <td class="text-center">
                      @Html.DisplayFor(model => model.Description)
                  </td>
+                  
+
                  <td class="text-center">
                      @Html.DisplayFor(model => model.MenuSelections.Count)
                  </td>
@@ -82,22 +88,29 @@
     </dl>-->
 </div>
 
-<hr />
 
+<br />
+<br />
+<br />
 <div>
-    <dt class=" font-monospace pb-3"> Invitados con esta seleccíón de menú:  </dt>
+    <dt class=" text-center"> Invitados con esta selección de menú:  </dt>
+    
+    <br />
+    <br />
     <br />
     @foreach (var item in Model.MenuSelections)
     {
         <div class="row">
-            <div class="col-md-5 bi bi-check2-circle text-success">
+            <div class="col-md-5 bi bi-check2-circle text-success text-start">
                 @string.Format("{0} {1}", item.Invitation.Employee.User.Name, item.Invitation.Employee.User.LastName)
 
             </div>
-            <div class="col-md-5 text-primary">
+            
+            <div class="col-md-5 text-primary text-end">
                 @item.Invitation.EmailEmployee
             </div>
-
+            
+            <hr />
         </div>
 
     }

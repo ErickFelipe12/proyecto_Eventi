@@ -4,14 +4,19 @@
 
 @if (ViewBag.IdMenu.Items.Count > 0)
 {
+    <h3 class="text-success text-center bi bi-bookmark-check"> La invitación ha sido aceptada</h3>
 
     using (Html.BeginForm("Create", "MenuSelections", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
         var db = new EventiApp.Models.DataContext();
         @Html.AntiForgeryToken()
-        <hr />
 
-        <dt class=" font-monospace pb-3"> ¡Selecciona tu menú para este evento!  </dt>
+        <br />
+        <br />
+
+        <dt class=" font-monospace pb-3 text-center"> ¡Selecciona tu menú para este evento!  </dt>
+        <br />
+        <br />
         <div class="form-horizontal">
 
 
@@ -20,23 +25,11 @@
             @Html.HiddenFor(model => model.IdInvitation)
             @Html.HiddenFor(model => model.IdMenuSelection)
 
-            @*<div class="form-group">
-            @Html.LabelFor(model => model.IdMenu, "Menu", htmlAttributes: new { @class = "control-label col-md-12" })
 
-            <div class="col-md-12">
-                @Html.DropDownList("IdMenu", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.IdMenu, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
+            <hr />
 
             @foreach (var lists in (SelectList)ViewBag.IdMenu)
             {
-                /*<span class="row pt-2">
-                    @Html.RadioButtonFor(m => m.IdMenu, lists.Value, new { id = "list" + lists.Value, name = "Lists", @value = lists.Value, @text = lists.Text })
-                    <label for="list@(lists.Value)" style="color:#808080;font-weight:100">@lists.Text</label>
-                </span>
-            }*/
 
 
 
@@ -51,43 +44,48 @@
                     <img src="~/Content/Menus/default.png" alt="image" style="width:200px;height:50px;max-width:100%;height:auto;" />
 
 
-                    /*<div class="form-group pt-4">
-                        <div class="col-md-offset-2 col-md-10 bi bi-check2-circle text-success">
-                            <input type="submit" value="" class="btn btn-outline-success" />
 
-                        </div>
-                    </div>
-                    <br />*/
                 }
                 <span class="row pt-2">
+
                     @Html.RadioButtonFor(m => m.IdMenu, lists.Value, new { id = "list" + lists.Value, name = "Lists", @value = lists.Value, @text = lists.Text })
+
                     <label for="list@(lists.Value)" style="color:#808080;font-weight:100">@lists.Text</label>
+
+
+                    <br />
+                    <br />
+
+
                 </span>
+                <hr />
             }
-            <br />
-            <br />
+
 
             <div class="form-group pt-4">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Actualizar menú" class="btn btn-primary" />
+                <div class="col-md-offset-2 col-md-10 bi bi-check2-circle text-success align-content-between">
+                    <input type="submit" value="" class="btn btn-outline-success" />
 
                 </div>
-
             </div>
             <br />
             <br />
 
 
 
-            <small class=" font-monospace pb-1 text-danger">¡AVISO!, Si desea cambiar su elección de menú debe ser maximo 3 días antes que el día del evento.   </small>
+            <small class=" font-monospace pb-1 text-danger">¡AVISO!, Si desea cambiar su elección de menú debe ser maximo 3 días antes que el día del evento. De lo contrario se tendrá en cuenta su elección anterior.   </small>
             <br />
-            <small class=" font-monospace pb-3 text-danger">De lo contrario se tendrá en cuenta su elección anterior.   </small>
+            
 
         </div>
 
-            }
-            }
-            else
-            {
-            <h5 class="pt-3">No hay menús disponibles para este evento.</h5>
-            }
+    }
+}
+else
+{
+    <h3 class="text-success text-center bi bi-bookmark-check"> La invitación ha sido aceptada</h3>
+    <hr />
+    <br />
+    <br />
+    <h4 class="pt-3 text-danger bi bi-emoji-frown"> Aún no hay menús disponibles para este evento.</h4>
+}

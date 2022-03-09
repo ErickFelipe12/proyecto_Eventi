@@ -4,8 +4,9 @@
 @{
     ViewBag.Title = "Eventi";
 }
-@Html.ActionLink(".", "Index", "Events", null, new { @class = "btn btn-outline-primary bi bi-skip-backward ml-auto"})
-<h2 class="ml-auto">Detalle de Invitación</h2>
+@Html.ActionLink(".", "Index", "Events", null, new { @class = "btn btn-danger bi bi-skip-backward ml-auto"})
+<br />
+<h2 class="text-center">Detalle de Invitación</h2>
 
 
 <div>
@@ -23,9 +24,17 @@
             <th class="text-center">
                 Empleado - Cargo
             </th>
+            
             <th class="text-center">
-                Correo Empleado
+                Hora
             </th>
+            <th class="text-center">
+                Fecha
+            </th>
+            <th class="text-center">
+                Organiza
+            </th>
+
         </tr>
 
 
@@ -38,8 +47,17 @@
             <td class="text-center">
                 @(String.Format("{0} {1} - {2}", Model.Employee.User.Name, Model.Employee.User.LastName, Model.Employee.Position))
             </td>
-            <td class="text-center">
+           <!----<td class="text-center">
                 @Html.DisplayFor(model => model.EmailEmployee)
+            </td>-->
+            <td class="text-center">
+                @Html.DisplayFor(model => model.Event.Hour)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(model => model.Event.Date)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(model => model.Event.Client.User.Name)
             </td>
 
         </tr>
@@ -48,37 +66,6 @@
     </table>
     <br />
 
-
-
-
-
-
-
-
-    <!--- <dl class="dl-horizontal">
-         <dt>
-             @Html.DisplayNameFor(model => model.IdEvent)
-         </dt>
-
-         <dd>
-             @(String.Format("{0} - {1} - {2}", Model.Event.Place, Model.Event.Type, Model.Event.Description))
-         </dd>
-
-         <dt>
-             @Html.DisplayNameFor(model => model.IdEmployee)
-         </dt>
-
-         <dd>
-             @(String.Format("{0} {1} - {2}", Model.Employee.User.Name, Model.Employee.User.LastName, Model.Employee.Position))
-         </dd>
-
-         <dt>
-             @Html.DisplayNameFor(model => model.EmailEmployee)
-         </dt>
-
-         <dd>
-             @Html.DisplayFor(model => model.EmailEmployee)
-         </dd>-->
 
     <dl>
         <dd class="mt-4">
@@ -93,7 +80,7 @@
 
                 };
 
-                @Html.ActionLink(".", "Accepted", new { id = Model.IdInvitation }, new { @class = "btn btn-danger bi bi-x-circle-fill  " })
+                @Html.ActionLink(".", "Accepted", new { id = Model.IdInvitation }, new { @class = "btn btn-outline-danger bi bi-x-circle-fill  " })
                 @Html.Partial("_MenuSelectionPartial", menuSelection);
 
             }
@@ -106,6 +93,7 @@
 
     </dl>
 </div>
+<br />
 <p>
 
 </p>

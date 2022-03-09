@@ -3,8 +3,8 @@
 @{
     ViewBag.Title = "Eventi";
 }
-
-<h2>Editar Evento</h2>
+@Html.ActionLink(".", "Index", null, new { @class = "btn  btn-danger px-3 bi bi-skip-backward" })
+<h2 class="text-center">Editar Evento</h2>
 <hr />
 <br />
 
@@ -137,7 +137,7 @@
     <div class="form-group py-3">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Guardar" class="btn btn-primary " />
-            @Html.ActionLink(".", "Index", null, new { @class = "btn  btn-outline-danger px-3 bi bi-skip-backward" })
+
         </div>
     </div>
 

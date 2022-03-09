@@ -4,6 +4,7 @@
 @{
     ViewBag.Title = "Crear Invitación";
 }
+@Html.ActionLink(".", "Index", new { id = Model.IdEvent }, new { @class = "btn btn-outline-white btn-danger bi bi-skip-backward" })
 
 <h2>Enviar Invitación</h2>
 
@@ -27,8 +28,8 @@
 
         <div class="form-group py-2">
             <div class=" bi bi-send-check text-primary">
-                <input type="submit" value="Enviar" class="btn btn-outline-warning btn-primary" />
-                @Html.ActionLink(".", "Index", new { id = Model.IdEvent }, new { @class = "btn btn-outline-white btn-danger bi bi-skip-backward" })
+                <input type="submit" value="Enviar" class="btn btn-outline-warning btn-dark" />
+
             </div>
         </div>
     </div>

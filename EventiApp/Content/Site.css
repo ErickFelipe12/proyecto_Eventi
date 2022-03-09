@@ -3,6 +3,24 @@
 }
 
 
+.btn-danger {
+    position: relative;
+    left: 95%;
+}
+
+.btn-success {
+    position: relative;
+    left: 90%;
+    bottom: -120px;
+}
+.btn-primary {
+    position: relative;
+    left: 70%;
+    bottom: -120px;
+}
+
+
+
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
