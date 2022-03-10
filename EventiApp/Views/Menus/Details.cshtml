@@ -3,6 +3,7 @@
 
 @{
     ViewBag.Title = "Eventi";
+
 }
 <p>
     @Html.ActionLink(".", "Index", new { id = Model.IdEvent }, new { @class = "btn  btn-danger px-3 bi bi-skip-backward" })
@@ -19,99 +20,94 @@
 <div>
 
 
-    
-
-         <table class="table table table-striped table-hover table-bordered">
-             <tr>
 
 
-                 <th class="text-center">
-                     @Html.DisplayNameFor(model => model.Type)
-                 </th>
-                 <th class="text-center">
-                     @Html.DisplayNameFor(model => model.Description)
-                 </th>
-                 
-                 <th class="text-center bi bi-check2 text-success">
-                     Seleccionado
-                 </th>
-                 <th></th>
-             </tr>
+    <table class="table table table-striped table-hover table-bordered">
+        <tr>
 
 
-        
-            <tr>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+
+            <th class="text-center bi bi-check2 text-success">
+                Seleccionado
+            </th>
+
+        </tr>
 
 
-                 <td class="text-center">
-                     @Html.DisplayFor(model => model.Type)
-                 </td>
-                 <td class="text-center">
-                     @Html.DisplayFor(model => model.Description)
-                 </td>
-                  
 
-                 <td class="text-center">
-                     @Html.DisplayFor(model => model.MenuSelections.Count)
-                 </td>
+        <tr>
 
-             </tr>
-        
- 
-      </table>
 
-      <!--- <dl class="dl-horizontal">
-        <dt>
-            Evento
-        </dt>
+            <td class="text-center">
+                @Html.DisplayFor(model => model.Type)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(model => model.Description)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Event.Description)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+            <td class="text-center">
+                @Html.DisplayFor(model => model.MenuSelections.Count)
+            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Type)
-        </dt>
+        </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.Type)
-        </dd>
 
-    </dl>-->
+    </table>
+
+
 </div>
 
 
 <br />
 <br />
 <br />
+<br />
+<br />
+<br />
+<br />
+
 <div>
-    <dt class=" text-center"> Invitados con esta selección de menú:  </dt>
-    
+    <dt class=" text-center bi bi-people-fill" style="position:relative;left:10px;"> Invitados con esta selección de menú:  </dt>
+
     <br />
     <br />
     <br />
     @foreach (var item in Model.MenuSelections)
     {
-        <div class="row">
-            <div class="col-md-5 bi bi-check2-circle text-success text-start">
-                @string.Format("{0} {1}", item.Invitation.Employee.User.Name, item.Invitation.Employee.User.LastName)
 
-            </div>
-            
-            <div class="col-md-5 text-primary text-end">
-                @item.Invitation.EmailEmployee
-            </div>
-            
-            <hr />
-        </div>
+        <table class="table table-hover ">
+            <tr>
+
+                <th class="text-center bi bi-person"> Empleado</th>
+                <th class="text-center bi bi-envelope-open"> Correo electrónico</th>
+
+            </tr>
+
+            <tr>
+                <td class="col-md-5 bi bi-check2-circle text-success text-center">
+                    @string.Format("{0} {1}", item.Invitation.Employee.User.Name, item.Invitation.Employee.User.LastName)
+                </td>
+
+                <td class="col-md-5 text-primary text-center">
+                    @item.Invitation.EmailEmployee
+                </td>
+
+
+            </tr>
+
+
+        </table>
+
+
+
 
     }
 </div>

@@ -5,31 +5,26 @@
 
 }
 
-<h2>@ViewBag.Title.</h2>
+<h2 class="text-center" style="position:relative; right:62px;">@ViewBag.Title</h2>
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
     <div>
-        <dt class="bi bi-shield-lock-fill"> Contraseña:</dt>
-        <dd >
+        <dt class="bi bi-shield-lock-fill" style="position:relative; left:5px;"> Contraseña:</dt>
+        <dd style="position:relative; left:8px;">
             @Html.ActionLink("Cambiar contraseña", "ChangePassword")
         </dd>
     </div>
     <hr />
     <dl class="dl-horizontal">
-       <!--- <dt>Contraseña:</dt>
-        <dd>
-            @Html.ActionLink("Cambia tu contraseña", "ChangePassword")
-
-        </dd>-->
+      
         
         @using (Html.BeginForm("Index", "Manage", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
 
-            <div class="form-horizontal">
-                <h4>Perfil Usuario</h4>
-                <hr />
+            <div class="form-horizontal" style="position:relative; left:20%">
+                
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @Html.HiddenFor(model => model.IdUser)
                 @Html.HiddenFor(model => model.Active)
@@ -105,28 +100,14 @@
 
 
 
-                <!---  <div class="form-group">
-                      @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
-                      <div class="col-md-10">
-                          @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
-                          @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
-                      </div>
-                  </div>
-
-                  <div class="form-group">
-                      @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-                      <div class="col-md-10">
-                          @Html.EditorFor(model => model.Email, new { disabled = "disabled", htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
-                          @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                      </div>
-                  </div>-->
+               
 
 
 
 
-                <div class="form-group pt-3">
+                <div class="form-group pt-3" style="position:relative; right:25%;">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Guardar" class="btn btn-success btn-sm" />
+                        <input type="submit" value="Guardar" class="btn btn-outline-success btn-sm" />
                     </div>
                 </div>
             </div>

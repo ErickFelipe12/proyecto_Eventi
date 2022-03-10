@@ -1,6 +1,35 @@
 ﻿.bodyContent {
    padding-top: 70px;
 }
+dd {
+    margin-bottom: 0.5rem;
+    margin-left: 0;
+    position: relative;
+    left: 85%;
+}
+.text-start {
+    text-align: left !important;
+    left: 1px;
+}
+.btn-sm, .btn-group-sm > .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.2rem;
+    left: 108%;
+    position: relative;
+}
+dt {
+    right: 35px;
+    font-weight: 700;
+    position: relative;
+    text-align: start;
+}
+.col-1 {
+    flex: 0 0 auto;
+    width: 8.33333333%;
+    position: relative;
+    left: 39px;
+}
 
 
 .btn-danger {

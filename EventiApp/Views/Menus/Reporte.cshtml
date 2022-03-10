@@ -67,27 +67,27 @@
             {
         <tr>
 
-            <td class="text-center">
+            <td class="text-center" style= "position:relative; top:25px">
                 @Html.DisplayFor(modelItem => item.Type)
             </td>
 
-            <td class="text-center">
+            <td class="text-center" style= "position:relative; top:25px">
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
 
             <td>
                 @if (!string.IsNullOrEmpty(item.Photo))
                 {
-                    <img src="~/Content/Menus/@Url.Content(item.Photo)" alt="image" style="width:120px;position:relative;left:53px;" />
+                    <img src="~/Content/Menus/@Url.Content(item.Photo)" alt="image" style="width:110px;position:relative;left:42px;" />
                 }
                 else
                 {
-                    <img src="~/Content/Menus/default.png" alt="image" style="width:110px;height:100px;max-width:50%;height:100%;right:50px;" />
+                    <img src="~/Content/Menus/default.png" alt="image" style="width:110px;position:relative;left:25px;" />
 
                 }
             </td>
 
-            <td class="text-center">
+            <td class="text-center" style= "position:relative; top:25px">
                 @Html.DisplayFor(modelItem => item.MenuSelections.Count)
             </td>
         </tr>
@@ -97,6 +97,8 @@
 
 
     </div>
+
+
 
 </body>
 </html>

@@ -3,8 +3,9 @@
 @using (Html.BeginForm("Employees", "Users", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
 {
     @Html.AntiForgeryToken()
-    <dt>Información adicional del empleado : </dt>
-    <div class="form-horizontal">
+    <dt style="position:relative; left:220px;">Información adicional del empleado : </dt>
+    <br />
+    <div class="form-horizontal" style="position:relative; left:219px;">
 
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -19,7 +20,7 @@
         </div>
 
         <div class="form-group pt-3">
-            <div class="col-md-offset-2 col-md-10 bi bi-save2-fill text-primary">
+            <div class="col-md-offset-2 col-md-10 text-primary">
                 <input type="submit" value="" class="btn btn-outline-primary" />
 
             </div>

@@ -25,13 +25,13 @@
                 Empleado - Cargo
             </th>
             
-            <th class="text-center">
+            <th class="text-center bi bi-clock-history">
                 Hora
             </th>
-            <th class="text-center">
+            <th class="text-center bi bi-calendar-event">
                 Fecha
             </th>
-            <th class="text-center">
+            <th class="text-center bi bi-person-badge">
                 Organiza
             </th>
 
@@ -68,7 +68,7 @@
 
 
     <dl>
-        <dd class="mt-4">
+        <dd class="mt-4" style="position:relative; left:0px;">
             @if (Model.Accepted)
             {
                 var selected = Model.MenuSelections.Count() > 0 ? Model.MenuSelections.FirstOrDefault() : null;

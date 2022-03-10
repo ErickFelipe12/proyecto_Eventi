@@ -6,11 +6,14 @@
     @Html.AntiForgeryToken()
     @Html.ActionLink(".", "Index", null, new { @class = "btn btn-danger bi bi-skip-backward" })
 
-    <div class="form-horizontal">
-        <h2>Nuevo Cliente</h2>
+    <h2 class="text-center">Nuevo Cliente</h2>
+    <hr />
+
+    <div class="class=" align-content-center" style="position:relative; left:170px;">
 
 
-        <hr />
+
+
         <br />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -109,7 +112,7 @@
 
         <div class="form-group py-4">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Guardar" class="btn btn-lg btn-outline-success" />
+                <input type="submit" value="Guardar" class="btn btn-lg btn-outline-success" style="position: relative; left: 68%;"/>
 
             </div>
         </div>

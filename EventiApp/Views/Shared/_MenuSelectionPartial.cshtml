@@ -5,7 +5,12 @@
 @if (ViewBag.IdMenu.Items.Count > 0)
 {
     <h3 class="text-success text-center bi bi-bookmark-check"> La invitación ha sido aceptada</h3>
-
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
     using (Html.BeginForm("Create", "MenuSelections", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
         var db = new EventiApp.Models.DataContext();
@@ -14,9 +19,9 @@
         <br />
         <br />
 
-        <dt class=" font-monospace pb-3 text-center"> ¡Selecciona tu menú para este evento!  </dt>
+        <dt class=" font-monospace pb-3 text-center bi bi-arrow-down-circle-fill" style="position:relative; left:5px;"> ¡Selecciona tu menú para este evento!  </dt>
         <br />
-        <br />
+
         <div class="form-horizontal">
 
 
@@ -27,6 +32,8 @@
 
 
             <hr />
+            <br />
+            <br />
 
             @foreach (var lists in (SelectList)ViewBag.IdMenu)
             {
@@ -43,26 +50,21 @@
                 {
                     <img src="~/Content/Menus/default.png" alt="image" style="width:200px;height:50px;max-width:100%;height:auto;" />
 
-
-
                 }
-                <span class="row pt-2">
+                <span class="row pt-2" style="position:relative; bottom:100px; left:255px;">
 
                     @Html.RadioButtonFor(m => m.IdMenu, lists.Value, new { id = "list" + lists.Value, name = "Lists", @value = lists.Value, @text = lists.Text })
 
-                    <label for="list@(lists.Value)" style="color:#808080;font-weight:100">@lists.Text</label>
-
-
-                    <br />
-                    <br />
-
+                    <label for="list@(lists.Value)" style="color:#242860; font-size:18px">@lists.Text</label>
 
                 </span>
                 <hr />
+                <br />
+                <br />
             }
 
 
-            <div class="form-group pt-4">
+            <div class="form-group pt-4" style=" position:relative; left:70%;">
                 <div class="col-md-offset-2 col-md-10 bi bi-check2-circle text-success align-content-between">
                     <input type="submit" value="" class="btn btn-outline-success" />
 
@@ -75,7 +77,7 @@
 
             <small class=" font-monospace pb-1 text-danger">¡AVISO!, Si desea cambiar su elección de menú debe ser maximo 3 días antes que el día del evento. De lo contrario se tendrá en cuenta su elección anterior.   </small>
             <br />
-            
+
 
         </div>
 
