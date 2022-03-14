@@ -63,35 +63,36 @@
                 </th>
             </tr>
 
-            @foreach (var item in Model)
-            {
-        <tr>
-
-            <td class="text-center" style= "position:relative; top:25px">
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-
-            <td class="text-center" style= "position:relative; top:25px">
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-
-            <td>
-                @if (!string.IsNullOrEmpty(item.Photo))
+               @foreach (var item in Model)
                 {
-                    <img src="~/Content/Menus/@Url.Content(item.Photo)" alt="image" style="width:110px;position:relative;left:42px;" />
-                }
-                else
-                {
-                    <img src="~/Content/Menus/default.png" alt="image" style="width:110px;position:relative;left:25px;" />
+                      <tr>
 
-                }
-            </td>
+                            <td class="text-center" style= "position:relative; top:25px">
+                               @Html.DisplayFor(modelItem => item.Type)
+                            </td>
 
-            <td class="text-center" style= "position:relative; top:25px">
-                @Html.DisplayFor(modelItem => item.MenuSelections.Count)
-            </td>
-        </tr>
-            }
+                            <td class="text-center" style="position:relative; top:25px">
+                               @Html.DisplayFor(modelItem => item.Description)
+                
+                           </td>
+
+                           <td>
+                               @if (!string.IsNullOrEmpty(item.Photo))
+                                {
+                                  <img src="~/Content/Menus/@Url.Content(item.Photo)" alt="image" style="width:110px;position:relative;left:42px;" />
+                                }
+                                else
+                                {
+                                   <img src="~/Content/Menus/default.png" alt="image" style="width:110px;position:relative;left:25px;" />
+
+                                }
+                           </td>
+
+                           <td class="text-center" style= "position:relative; top:25px">
+                             @Html.DisplayFor(modelItem => item.MenuSelections.Count)
+                           </td>
+                     </tr>
+                }
 
         </table>
 

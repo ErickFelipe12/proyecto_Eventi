@@ -5,7 +5,8 @@
     ViewBag.Title = "Eliminar Menú";
 }
 
-<h2></h2>
+
+@Html.ActionLink(".", "Index", null, new { id = Model.IdMenu }, new { @class = "btn btn-lg btn-danger bi bi-skip-backward" })
 
 <br />
 <h3>¿Estas seguro de eliminar este Menú?</h3>
@@ -24,7 +25,8 @@
                 Descripción
             </th>
 
-            
+
+
 
         </tr>
 
@@ -35,48 +37,23 @@
             <td class="text-center">
                 @Html.DisplayFor(model => model.Description)
             </td>
-           
+
+
+
         </tr>
 
     </table>
     <br />
 
-   <!--- <dl class="dl-horizontal">
-        <!---
-        <dt>
-            @Html.DisplayNameFor(model => model.IdEvent)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IdEvent)
-        </dd>
-
-        <dt>
-
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Type)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Type)
-        </dd>
-
-    </dl>-->
+   
 
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
         <div class="form-actions text-danger bi bi-trash3-fill">
-            <input type="submit" value="Eliminar" class="btn btn-outline-danger" /> |
-            @Html.ActionLink(".", "Index", new { id = Model.IdMenu }, new { @class = "btn btn-lg btn-primary bi bi-skip-backward" })
+            <input type="submit" value="Eliminar" class="btn btn-outline-danger" /> 
+            
 
         </div>
     }

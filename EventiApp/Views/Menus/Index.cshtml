@@ -22,6 +22,10 @@
 <br />
 <br />
 <table class="table table  table-bordered">
+
+
+  <thead>
+
     <tr class="border-1">
 
 
@@ -37,8 +41,10 @@
         <th class="text-center bi bi-check2 text-success">
             Seleccionado
         </th>
-        <th></th>
+        <th class="text-center">Acciones</th>
     </tr>
+
+  </thead>
 
     @foreach (var item in Model)
     {
@@ -65,7 +71,7 @@
             <td class="text-center" style="position:relative; top:25px">
                 @Html.DisplayFor(modelItem => item.MenuSelections.Count)
             </td>
-            <td class="text-center" style="position:relative; top:23px">
+            <td class="text-center" style="position:relative; top:19px">
                 @Html.ActionLink(".", "Edit", new { id = item.IdMenu }, new { @class = "btn btn-outline-primary btn bi bi-pencil-square" })
                 @Html.ActionLink(".", "Details", new { id = item.IdMenu }, new { @class = "btn btn-warning mx-3 bi bi-eye-fill" })
                 @Html.ActionLink(".", "Delete", new { id = item.IdMenu }, new { @class = "btn btn-outline-danger btn bi bi-trash3-fill" })
