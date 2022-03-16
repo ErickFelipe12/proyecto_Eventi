@@ -6,33 +6,39 @@
 }
 @Html.ActionLink(".", "Index", new { id = Model.IdEvent }, new { @class = "btn btn-outline-white btn-danger bi bi-skip-backward" })
 
-<h2>Enviar Invitación</h2>
+<h2 class="text-center">Enviar Invitación</h2>
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.IdEvent)
+<div class="form-horizontal">
+    <hr />
+    <br />
+    <br />
+    <br />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.IdEvent)
 
-        <div class="form-group ">
-            @Html.LabelFor(model => model.EmailEmployee, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.EmailEmployee, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EmailEmployee, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group py-2">
-            <div class=" bi bi-send-check text-primary">
-                <input type="submit" value="Enviar" class="btn btn-outline-warning btn-dark" />
-
-            </div>
+    <div class="form-group " style="position:relative; left:260px;">
+        <i class="bi bi-envelope-open-fill"> Digite el correo electrónico de su invitado: </i>
+        
+        <div class="col-md-6">
+            
+            @Html.EditorFor(model => model.EmailEmployee, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.EmailEmployee, "", new { @class = "text-danger" })
         </div>
     </div>
+    <br />
+    <br />
+    <div class="form-group py-2" style="position:relative; left:729px;">
+        <div class=" bi bi-send-check text-success">
+            <input type="submit" value="Enviar" class="btn btn-outline-success " />
+
+        </div>
+    </div>
+</div>
 }
 
 
