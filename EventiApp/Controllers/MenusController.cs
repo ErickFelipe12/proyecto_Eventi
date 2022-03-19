@@ -158,9 +158,11 @@ namespace EventiApp.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Menu menuDelete = db.Menus.Find(id);
+            var idEvent = menuDelete.IdEvent;
             db.Menus.Remove(menuDelete);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { id = idEvent});
+
         }
 
 
