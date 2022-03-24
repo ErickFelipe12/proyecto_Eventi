@@ -1,6 +1,7 @@
 ﻿using EventiApp.Models;
 using EventiApp.Models.Enums;
 using EventiApp.Utils;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -18,10 +19,14 @@ namespace EventiApp.Controllers
         private DataContext db = new DataContext();
 
         // GET: Usuarios
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            var d = db.Users.ToList();
-            return View(db.Users.ToList());
+            int pageSize = 6;
+            int pageNumber = (page ?? 1);
+            var lista = db.Users.OrderBy(z => z.Name);
+            return View(lista.ToPagedList(pageNumber, pageSize));
+            //var d = db.Users.ToList();
+            //return View(db.Users.ToList());
         }
 
         
@@ -76,8 +81,8 @@ namespace EventiApp.Controllers
             var html = "<h2> Te saludamos desde Eventi <h2> </br>" +
                          "<p> ¡Hola! " + user.Name + " " + user.LastName + " " +
                         "<p>te hemos creado el siguiente usuario, para que realices tus eventos</p> </br> " +
-                        "<p><b> Email: </b>" + user.Email + "</br> " +
-                        "<p><b> Password: </b>" + password + "</ p> </br> " +
+                        "<p><b> Correo electrónico: </b>" + user.Email + "</br> " +
+                        "<p><b> Contraseña: </b>" + password + "</ p> </br> " +
                         "<p>Puedes iniciar sesión ahora y cambiar a la contraseña que desees</p>" +
                         "<p>¡Bienvenido!</p>" +
                         "<a href=" + url + "> Iniciar Sesión </a>";

@@ -32,6 +32,9 @@
             <th class="text-center">
                 @Html.DisplayNameFor(model => model.Description)
             </th>
+            <th class="text-center bi bi-camera-fill">
+                
+            </th>
 
             <th class="text-center bi bi-check2 text-success">
                 Seleccionado
@@ -44,16 +47,19 @@
         <tr>
 
 
-            <td class="text-center">
+            <td class="text-center" style="position:relative; top:25px">
                 @Html.DisplayFor(model => model.Type)
             </td>
-            <td class="text-center">
+            <td class="text-center" style="position:relative; top:25px">
                 @Html.DisplayFor(model => model.Description)
             </td>
 
 
-
             <td class="text-center">
+                <img src="~/Content/Menus/@Model.Photo" alt="image" style="width:110px;position:relative;right:6px;" />
+            </td>
+
+            <td class="text-center" style="position:relative; top:25px">
                 @Html.DisplayFor(model => model.MenuSelections.Count)
             </td>
 
