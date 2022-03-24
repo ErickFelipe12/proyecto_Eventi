@@ -79,7 +79,7 @@
             }
             @if (this.User.IsInRole(EventiApp.Models.Enums.RolesEnum.Guest))
             {
-                @Html.ActionLink(".", "Details", "Invitations", new { id = item.Invitations.FirstOrDefault().IdInvitation }, new { @class = "btn btn-outline btn-warning bi bi-eye-fill" })
+                @Html.ActionLink(".", "Details", "Invitations", new { id = item.Invitations.FirstOrDefault().IdInvitation }, new { @class = "btn btn-outline btn-warning bi bi-eye-fill" } )
             }
         </td>
     </tr>
